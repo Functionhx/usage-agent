@@ -1,0 +1,1445 @@
+{
+  "host": "chen",
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-25T05:03:14Z",
+  "days": [
+    {
+      "date": "2026-03-03",
+      "cost": 0,
+      "tokens": 195043,
+      "cacheRead": 1935744,
+      "byModel": [
+        {
+          "model": "gpt-5.3-codex",
+          "cost": 0,
+          "tokens": 195043
+        }
+      ]
+    },
+    {
+      "date": "2026-03-04",
+      "cost": 0,
+      "tokens": 213547,
+      "cacheRead": 951552,
+      "byModel": [
+        {
+          "model": "gpt-5.3-codex",
+          "cost": 0,
+          "tokens": 213547
+        }
+      ]
+    },
+    {
+      "date": "2026-03-05",
+      "cost": 0,
+      "tokens": 114519,
+      "cacheRead": 569088,
+      "byModel": [
+        {
+          "model": "gpt-5.3-codex",
+          "cost": 0,
+          "tokens": 114519
+        }
+      ]
+    },
+    {
+      "date": "2026-03-06",
+      "cost": 0.9212,
+      "tokens": 212145,
+      "cacheRead": 1116800,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 0.9212,
+          "tokens": 193320
+        },
+        {
+          "model": "gpt-5.3-codex",
+          "cost": 0,
+          "tokens": 18825
+        }
+      ]
+    },
+    {
+      "date": "2026-03-07",
+      "cost": 1.7451,
+      "tokens": 249104,
+      "cacheRead": 2921600,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 1.7451,
+          "tokens": 249104
+        }
+      ]
+    },
+    {
+      "date": "2026-03-08",
+      "cost": 1.4637,
+      "tokens": 231211,
+      "cacheRead": 1481472,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 1.4637,
+          "tokens": 231211
+        }
+      ]
+    },
+    {
+      "date": "2026-03-09",
+      "cost": 4.0099,
+      "tokens": 633966,
+      "cacheRead": 6595456,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 4.0099,
+          "tokens": 633966
+        }
+      ]
+    },
+    {
+      "date": "2026-03-10",
+      "cost": 12.9271,
+      "tokens": 1937064,
+      "cacheRead": 24053888,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 12.9271,
+          "tokens": 1937064
+        }
+      ]
+    },
+    {
+      "date": "2026-03-11",
+      "cost": 3.8459,
+      "tokens": 910209,
+      "cacheRead": 4504192,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 3.8459,
+          "tokens": 910209
+        }
+      ]
+    },
+    {
+      "date": "2026-03-12",
+      "cost": 0.0523,
+      "tokens": 8234,
+      "cacheRead": 43392,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 0.0523,
+          "tokens": 8234
+        }
+      ]
+    },
+    {
+      "date": "2026-03-15",
+      "cost": 3.2184,
+      "tokens": 832213,
+      "cacheRead": 2945664,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 3.2184,
+          "tokens": 832213
+        }
+      ]
+    },
+    {
+      "date": "2026-03-16",
+      "cost": 5.703,
+      "tokens": 1329489,
+      "cacheRead": 5968640,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 5.703,
+          "tokens": 1329489
+        }
+      ]
+    },
+    {
+      "date": "2026-03-17",
+      "cost": 7.781,
+      "tokens": 1964315,
+      "cacheRead": 8003072,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 7.781,
+          "tokens": 1964315
+        }
+      ]
+    },
+    {
+      "date": "2026-03-18",
+      "cost": 48.7879,
+      "tokens": 10278640,
+      "cacheRead": 68145536,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 48.7879,
+          "tokens": 10278640
+        }
+      ]
+    },
+    {
+      "date": "2026-03-19",
+      "cost": 4.0726,
+      "tokens": 729343,
+      "cacheRead": 5896960,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 4.0726,
+          "tokens": 729343
+        }
+      ]
+    },
+    {
+      "date": "2026-03-20",
+      "cost": 16.0729,
+      "tokens": 2840477,
+      "cacheRead": 23114240,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 16.0729,
+          "tokens": 2840477
+        }
+      ]
+    },
+    {
+      "date": "2026-03-21",
+      "cost": 3.0135,
+      "tokens": 785235,
+      "cacheRead": 2124800,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 3.0135,
+          "tokens": 785235
+        }
+      ]
+    },
+    {
+      "date": "2026-03-22",
+      "cost": 0.6249,
+      "tokens": 167867,
+      "cacheRead": 686976,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 0.6249,
+          "tokens": 167867
+        }
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "cost": 1.5281,
+      "tokens": 339664,
+      "cacheRead": 1591040,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 1.5281,
+          "tokens": 339664
+        }
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "cost": 13.6722,
+      "tokens": 2195090,
+      "cacheRead": 24606720,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 13.6722,
+          "tokens": 2195090
+        }
+      ]
+    },
+    {
+      "date": "2026-03-26",
+      "cost": 5.1511,
+      "tokens": 1157889,
+      "cacheRead": 5606656,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 5.1511,
+          "tokens": 1157889
+        }
+      ]
+    },
+    {
+      "date": "2026-03-27",
+      "cost": 8.2633,
+      "tokens": 2191131,
+      "cacheRead": 6331008,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 8.2633,
+          "tokens": 2191131
+        }
+      ]
+    },
+    {
+      "date": "2026-04-06",
+      "cost": 0.1627,
+      "tokens": 28166,
+      "cacheRead": 249216,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 0.1627,
+          "tokens": 28166
+        }
+      ]
+    },
+    {
+      "date": "2026-04-07",
+      "cost": 1.9627,
+      "tokens": 544825,
+      "cacheRead": 55936,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 1.9627,
+          "tokens": 544825
+        }
+      ]
+    },
+    {
+      "date": "2026-04-09",
+      "cost": 1.6254,
+      "tokens": 241237,
+      "cacheRead": 121856,
+      "byModel": [
+        {
+          "model": "gpt-5.4",
+          "cost": 1.6254,
+          "tokens": 241237
+        }
+      ]
+    },
+    {
+      "date": "2026-05-16",
+      "cost": 6.2376,
+      "tokens": 635942,
+      "cacheRead": 3948416,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 6.2376,
+          "tokens": 635942
+        }
+      ]
+    },
+    {
+      "date": "2026-06-17",
+      "cost": 4.003,
+      "tokens": 455779,
+      "cacheRead": 2506624,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 4.003,
+          "tokens": 455779
+        }
+      ]
+    },
+    {
+      "date": "2026-07-04",
+      "cost": 42.6841,
+      "tokens": 2251682,
+      "cacheRead": 53511808,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 42.6841,
+          "tokens": 2251682
+        }
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "cost": 126.1782,
+      "tokens": 8728266,
+      "cacheRead": 134705792,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 126.1782,
+          "tokens": 8728266
+        }
+      ]
+    },
+    {
+      "date": "2026-07-06",
+      "cost": 355.4709,
+      "tokens": 23517171,
+      "cacheRead": 401432320,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 355.4709,
+          "tokens": 23517171
+        }
+      ]
+    },
+    {
+      "date": "2026-07-07",
+      "cost": 199.1187,
+      "tokens": 13846482,
+      "cacheRead": 228484096,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 199.1187,
+          "tokens": 13590513
+        },
+        {
+          "model": "gpt-5.4-mini",
+          "cost": 0,
+          "tokens": 255969
+        }
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "cost": 235.7399,
+      "tokens": 17477588,
+      "cacheRead": 251355008,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 235.7399,
+          "tokens": 17477588
+        }
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "cost": 182.8095,
+      "tokens": 14856544,
+      "cacheRead": 181235200,
+      "byModel": [
+        {
+          "model": "gpt-5.5",
+          "cost": 182.8095,
+          "tokens": 14856544
+        }
+      ]
+    },
+    {
+      "date": "2026-07-10",
+      "cost": 542.2238,
+      "tokens": 23773641,
+      "cacheRead": 971753216,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 542.2238,
+          "tokens": 23764803
+        },
+        {
+          "model": "gpt-5.6-luna",
+          "cost": 0,
+          "tokens": 8838
+        }
+      ]
+    },
+    {
+      "date": "2026-07-11",
+      "cost": 1028.4389,
+      "tokens": 49492099,
+      "cacheRead": 1795843328,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 1028.4389,
+          "tokens": 49492099
+        }
+      ]
+    },
+    {
+      "date": "2026-07-12",
+      "cost": 948.5622,
+      "tokens": 48742130,
+      "cacheRead": 1601355264,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 948.5622,
+          "tokens": 48742130
+        }
+      ]
+    },
+    {
+      "date": "2026-07-13",
+      "cost": 505.8744,
+      "tokens": 29533090,
+      "cacheRead": 824735616,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 505.8039,
+          "tokens": 29519355
+        },
+        {
+          "model": "gpt-5.5",
+          "cost": 0.0705,
+          "tokens": 13735
+        }
+      ]
+    },
+    {
+      "date": "2026-07-14",
+      "cost": 899.1677,
+      "tokens": 46662576,
+      "cacheRead": 1528712448,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 899.1677,
+          "tokens": 46662576
+        }
+      ]
+    },
+    {
+      "date": "2026-07-15",
+      "cost": 1310.3683,
+      "tokens": 60336738,
+      "cacheRead": 2228203904,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 937.7424,
+          "tokens": 39765577
+        },
+        {
+          "model": "gpt-5.5",
+          "cost": 365.1245,
+          "tokens": 17176742
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "cost": 7.5015,
+          "tokens": 1411511
+        },
+        {
+          "model": "gpt-5.3-codex-spark",
+          "cost": 0,
+          "tokens": 1982908
+        }
+      ]
+    },
+    {
+      "date": "2026-07-16",
+      "cost": 205.571,
+      "tokens": 13411558,
+      "cacheRead": 311273472,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 205.571,
+          "tokens": 13411558
+        }
+      ]
+    },
+    {
+      "date": "2026-07-17",
+      "cost": 272.6754,
+      "tokens": 16787341,
+      "cacheRead": 449092352,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 272.6754,
+          "tokens": 16787341
+        }
+      ]
+    },
+    {
+      "date": "2026-07-18",
+      "cost": 278.0833,
+      "tokens": 16651673,
+      "cacheRead": 463341568,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 278.0833,
+          "tokens": 16651673
+        }
+      ]
+    },
+    {
+      "date": "2026-07-19",
+      "cost": 285.3015,
+      "tokens": 15738419,
+      "cacheRead": 486497792,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 285.3015,
+          "tokens": 15738419
+        }
+      ]
+    },
+    {
+      "date": "2026-07-20",
+      "cost": 222.9333,
+      "tokens": 8345011,
+      "cacheRead": 428145152,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 222.9333,
+          "tokens": 8345011
+        }
+      ]
+    },
+    {
+      "date": "2026-07-21",
+      "cost": 180.1629,
+      "tokens": 6890176,
+      "cacheRead": 353466368,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 180.1629,
+          "tokens": 6795160
+        },
+        {
+          "model": "gpt-5.3-codex-spark",
+          "cost": 0,
+          "tokens": 95016
+        }
+      ]
+    },
+    {
+      "date": "2026-07-22",
+      "cost": 270.7281,
+      "tokens": 10551227,
+      "cacheRead": 516844800,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 270.4705,
+          "tokens": 10484180
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "cost": 0.2577,
+          "tokens": 67047
+        }
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "cost": 407.3843,
+      "tokens": 18787193,
+      "cacheRead": 750556928,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 407.3843,
+          "tokens": 18787193
+        }
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "cost": 304.7653,
+      "tokens": 15493631,
+      "cacheRead": 554374912,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 304.7653,
+          "tokens": 15493631
+        }
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "cost": 229.1007,
+      "tokens": 11719953,
+      "cacheRead": 402809088,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 229.1007,
+          "tokens": 11719953
+        }
+      ]
+    },
+    {
+      "date": "2026-07-26",
+      "cost": 84.6859,
+      "tokens": 6829760,
+      "cacheRead": 122686464,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 84.6859,
+          "tokens": 6829760
+        }
+      ]
+    },
+    {
+      "date": "2026-07-27",
+      "cost": 78.9833,
+      "tokens": 8486459,
+      "cacheRead": 93071360,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 78.9833,
+          "tokens": 8486459
+        }
+      ]
+    },
+    {
+      "date": "2026-07-28",
+      "cost": 85.001,
+      "tokens": 6188516,
+      "cacheRead": 110109056,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 81.5531,
+          "tokens": 5378042
+        },
+        {
+          "model": "gpt-5.4",
+          "cost": 2.732,
+          "tokens": 719801
+        },
+        {
+          "model": "gpt-5.5",
+          "cost": 0.6932,
+          "tokens": 80285
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "cost": 0.0227,
+          "tokens": 10388
+        }
+      ]
+    },
+    {
+      "date": "2026-07-29",
+      "cost": 8.1279,
+      "tokens": 603233,
+      "cacheRead": 12009728,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 8.1279,
+          "tokens": 603233
+        }
+      ]
+    },
+    {
+      "date": "2026-07-31",
+      "cost": 1026.0999,
+      "tokens": 61997719,
+      "cacheRead": 1684830976,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 1022.3981,
+          "tokens": 61370206
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "cost": 3.7017,
+          "tokens": 627513
+        }
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "cost": 136.1276,
+      "tokens": 6874186,
+      "cacheRead": 242357760,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 136.1276,
+          "tokens": 6874186
+        }
+      ]
+    },
+    {
+      "date": "2026-08-02",
+      "cost": 1200.6741,
+      "tokens": 71535449,
+      "cacheRead": 1995064960,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 1197.6046,
+          "tokens": 70291502
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "cost": 2.1111,
+          "tokens": 402667
+        },
+        {
+          "model": "gpt-5.4",
+          "cost": 0.5628,
+          "tokens": 140192
+        },
+        {
+          "model": "deepseek-v4-flash",
+          "cost": 0.3955,
+          "tokens": 701088
+        }
+      ]
+    },
+    {
+      "date": "2026-08-03",
+      "cost": 384.0816,
+      "tokens": 43090239,
+      "cacheRead": 979597056,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 382.3989,
+          "tokens": 30670033
+        },
+        {
+          "model": "deepseek-v4-flash",
+          "cost": 1.6827,
+          "tokens": 2924806
+        },
+        {
+          "model": "gpt-5.6-luna",
+          "cost": 0,
+          "tokens": 9495400
+        }
+      ]
+    },
+    {
+      "date": "2026-08-08",
+      "cost": 1.2972,
+      "tokens": 135535,
+      "cacheRead": 1493248,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 1.2972,
+          "tokens": 135535
+        }
+      ]
+    },
+    {
+      "date": "2026-08-09",
+      "cost": 135.9729,
+      "tokens": 6852777,
+      "cacheRead": 241136640,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 135.9729,
+          "tokens": 6852777
+        }
+      ]
+    },
+    {
+      "date": "2026-08-10",
+      "cost": 199.87,
+      "tokens": 7544939,
+      "cacheRead": 391481600,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 199.87,
+          "tokens": 7544939
+        }
+      ]
+    },
+    {
+      "date": "2026-08-11",
+      "cost": 0.1807,
+      "tokens": 355901,
+      "cacheRead": 18886272,
+      "byModel": [
+        {
+          "model": "deepseek-v4-flash",
+          "cost": 0.1807,
+          "tokens": 355901
+        }
+      ]
+    },
+    {
+      "date": "2026-08-12",
+      "cost": 0.0748,
+      "tokens": 154549,
+      "cacheRead": 10726912,
+      "byModel": [
+        {
+          "model": "deepseek-v4-flash",
+          "cost": 0.0748,
+          "tokens": 154549
+        }
+      ]
+    },
+    {
+      "date": "2026-08-15",
+      "cost": 2.9378,
+      "tokens": 487855,
+      "cacheRead": 7654272,
+      "byModel": [
+        {
+          "model": "glm-5.3",
+          "cost": 2.9378,
+          "tokens": 487855
+        }
+      ]
+    },
+    {
+      "date": "2026-08-17",
+      "cost": 111.3627,
+      "tokens": 4619192,
+      "cacheRead": 244345152,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 89.5764,
+          "tokens": 3376916
+        },
+        {
+          "model": "glm-5.3",
+          "cost": 21.7863,
+          "tokens": 1242276
+        }
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "cost": 63.503,
+      "tokens": 5468570,
+      "cacheRead": 202573248,
+      "byModel": [
+        {
+          "model": "glm-5.3",
+          "cost": 63.503,
+          "tokens": 5276587
+        },
+        {
+          "model": "GLM-5.3",
+          "cost": 0,
+          "tokens": 191983
+        }
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "cost": 37.9998,
+      "tokens": 872081,
+      "cacheRead": 78589696,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 37.9998,
+          "tokens": 872081
+        }
+      ]
+    },
+    {
+      "date": "2026-08-21",
+      "cost": 186.3105,
+      "tokens": 7135107,
+      "cacheRead": 406913408,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 167.3992,
+          "tokens": 5054426
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "cost": 18.9113,
+          "tokens": 2080681
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "cost": 25.9642,
+      "tokens": 900419,
+      "cacheRead": 49983232,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 25.9642,
+          "tokens": 900419
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "cost": 3.795,
+      "tokens": 340274,
+      "cacheRead": 4401152,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 3.795,
+          "tokens": 340274
+        }
+      ]
+    },
+    {
+      "date": "2026-08-24",
+      "cost": 593.775,
+      "tokens": 31914560,
+      "cacheRead": 982098240,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 593.5469,
+          "tokens": 31879748
+        },
+        {
+          "model": "glm-5.3",
+          "cost": 0.2281,
+          "tokens": 34812
+        }
+      ]
+    },
+    {
+      "date": "2026-08-25",
+      "cost": 1108.8873,
+      "tokens": 61058842,
+      "cacheRead": 1918316544,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 1080.4273,
+          "tokens": 56319769
+        },
+        {
+          "model": "glm-5.3",
+          "cost": 26.0569,
+          "tokens": 4421917
+        },
+        {
+          "model": "gpt-5.6-terra",
+          "cost": 2.4031,
+          "tokens": 317156
+        }
+      ]
+    },
+    {
+      "date": "2026-08-26",
+      "cost": 209.2121,
+      "tokens": 9897458,
+      "cacheRead": 378784000,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 207.9832,
+          "tokens": 9627820
+        },
+        {
+          "model": "glm-5.3",
+          "cost": 1.229,
+          "tokens": 269638
+        }
+      ]
+    },
+    {
+      "date": "2026-08-27",
+      "cost": 145.3272,
+      "tokens": 7830894,
+      "cacheRead": 243656896,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 144.3929,
+          "tokens": 7497630
+        },
+        {
+          "model": "glm-5.3",
+          "cost": 0.9343,
+          "tokens": 333264
+        }
+      ]
+    },
+    {
+      "date": "2026-08-28",
+      "cost": 4.8826,
+      "tokens": 403992,
+      "cacheRead": 6601664,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 4.7297,
+          "tokens": 365123
+        },
+        {
+          "model": "glm-5.3",
+          "cost": 0.1529,
+          "tokens": 38869
+        }
+      ]
+    },
+    {
+      "date": "2026-08-30",
+      "cost": 3.0526,
+      "tokens": 3073664,
+      "cacheRead": 14733888,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 1.6966,
+          "tokens": 113332
+        },
+        {
+          "model": "glm-5.3",
+          "cost": 1.356,
+          "tokens": 162967
+        },
+        {
+          "model": "glm-5.3-flash",
+          "cost": 0,
+          "tokens": 2797365
+        }
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "cost": 1053.9787,
+      "tokens": 31119228,
+      "cacheRead": 948814912,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol-priority",
+          "cost": 1048.7443,
+          "tokens": 27480501
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 5.2344,
+          "tokens": 612112
+        },
+        {
+          "model": "glm-5.3-flash",
+          "cost": 0,
+          "tokens": 3026615
+        }
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "cost": 1292.7068,
+      "tokens": 32616213,
+      "cacheRead": 1820713088,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol-priority",
+          "cost": 742.7212,
+          "tokens": 15132171
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 549.9857,
+          "tokens": 17232608
+        },
+        {
+          "model": "glm-5.3-flash",
+          "cost": 0,
+          "tokens": 251434
+        }
+      ]
+    },
+    {
+      "date": "2026-09-02",
+      "cost": 818.4712,
+      "tokens": 14911552,
+      "cacheRead": 780874240,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol-priority",
+          "cost": 818.4712,
+          "tokens": 14911552
+        }
+      ]
+    },
+    {
+      "date": "2026-09-03",
+      "cost": 4.2226,
+      "tokens": 145337,
+      "cacheRead": 3067264,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol-priority",
+          "cost": 4.1776,
+          "tokens": 134730
+        },
+        {
+          "model": "gpt-5.6-terra-fast",
+          "cost": 0.045,
+          "tokens": 10607
+        }
+      ]
+    },
+    {
+      "date": "2026-09-04",
+      "cost": 110.7742,
+      "tokens": 3405613,
+      "cacheRead": 237288448,
+      "byModel": [
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 102.302,
+          "tokens": 2520946
+        },
+        {
+          "model": "gpt-5.6-sol-priority",
+          "cost": 8.4723,
+          "tokens": 300918
+        },
+        {
+          "model": "deepseek-v4-flash-vision-exp",
+          "cost": 0,
+          "tokens": 583749
+        }
+      ]
+    },
+    {
+      "date": "2026-09-05",
+      "cost": 488.6209,
+      "tokens": 8762030,
+      "cacheRead": 356393600,
+      "byModel": [
+        {
+          "model": "gpt-6-astra-priority",
+          "cost": 219.3427,
+          "tokens": 2206954
+        },
+        {
+          "model": "gpt-6-astra",
+          "cost": 188.7369,
+          "tokens": 5060389
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 80.5413,
+          "tokens": 1494687
+        }
+      ]
+    },
+    {
+      "date": "2026-09-06",
+      "cost": 21.1828,
+      "tokens": 632411,
+      "cacheRead": 23329263,
+      "byModel": [
+        {
+          "model": "claude-opus-5",
+          "cost": 21.1828,
+          "tokens": 632411
+        }
+      ]
+    },
+    {
+      "date": "2026-09-07",
+      "cost": 136.8594,
+      "tokens": 2815606,
+      "cacheRead": 191877321,
+      "byModel": [
+        {
+          "model": "claude-opus-5",
+          "cost": 136.8594,
+          "tokens": 2815606
+        }
+      ]
+    },
+    {
+      "date": "2026-09-08",
+      "cost": 213.8362,
+      "tokens": 4777803,
+      "cacheRead": 245782559,
+      "byModel": [
+        {
+          "model": "claude-opus-5",
+          "cost": 144.047,
+          "tokens": 2778323
+        },
+        {
+          "model": "gpt-6-astra",
+          "cost": 69.7893,
+          "tokens": 1999480
+        }
+      ]
+    },
+    {
+      "date": "2026-09-09",
+      "cost": 673.6171,
+      "tokens": 14725528,
+      "cacheRead": 575677796,
+      "byModel": [
+        {
+          "model": "gpt-6-astra",
+          "cost": 512.0844,
+          "tokens": 11630500
+        },
+        {
+          "model": "claude-opus-5",
+          "cost": 160.6261,
+          "tokens": 2910727
+        },
+        {
+          "model": "claude-sonnet-5",
+          "cost": 0.9066,
+          "tokens": 184301
+        }
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "cost": 751.8738,
+      "tokens": 16083882,
+      "cacheRead": 718913921,
+      "byModel": [
+        {
+          "model": "gpt-6-astra",
+          "cost": 571.6015,
+          "tokens": 11691898
+        },
+        {
+          "model": "claude-opus-5",
+          "cost": 172.2931,
+          "tokens": 3045795
+        },
+        {
+          "model": "gpt-5.6-sol",
+          "cost": 7.5822,
+          "tokens": 873795
+        },
+        {
+          "model": "deepseek-flash",
+          "cost": 0.2862,
+          "tokens": 394332
+        },
+        {
+          "model": "deepseek-v4.1-flash-expires-on-0910",
+          "cost": 0.1108,
+          "tokens": 78062
+        }
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "cost": 161.5073,
+      "tokens": 3832861,
+      "cacheRead": 237945774,
+      "byModel": [
+        {
+          "model": "claude-opus-5",
+          "cost": 161.2462,
+          "tokens": 3283768
+        },
+        {
+          "model": "deepseek-v4.1-flash-expires-on-0910",
+          "cost": 0.2611,
+          "tokens": 549093
+        }
+      ]
+    },
+    {
+      "date": "2026-09-12",
+      "cost": 216.3429,
+      "tokens": 4911301,
+      "cacheRead": 322569430,
+      "byModel": [
+        {
+          "model": "claude-opus-5",
+          "cost": 205.3652,
+          "tokens": 4269277
+        },
+        {
+          "model": "gpt-6-astra",
+          "cost": 10.7967,
+          "tokens": 237085
+        },
+        {
+          "model": "deepseek-v4.1-flash-expires-on-0910",
+          "cost": 0.1811,
+          "tokens": 404939
+        }
+      ]
+    },
+    {
+      "date": "2026-09-13",
+      "cost": 65.5471,
+      "tokens": 1071664,
+      "cacheRead": 47254069,
+      "byModel": [
+        {
+          "model": "gpt-6-astra",
+          "cost": 63.3729,
+          "tokens": 1057878
+        },
+        {
+          "model": "claude-opus-5",
+          "cost": 2.1742,
+          "tokens": 13786
+        }
+      ]
+    },
+    {
+      "date": "2026-09-17",
+      "cost": 5.0592,
+      "tokens": 208761,
+      "cacheRead": 4321744,
+      "byModel": [
+        {
+          "model": "claude-opus-5",
+          "cost": 4.2115,
+          "tokens": 164812
+        },
+        {
+          "model": "gpt-6-astra",
+          "cost": 0.8477,
+          "tokens": 43949
+        }
+      ]
+    },
+    {
+      "date": "2026-09-18",
+      "cost": 15.7919,
+      "tokens": 309676,
+      "cacheRead": 18059710,
+      "byModel": [
+        {
+          "model": "claude-opus-5",
+          "cost": 11.0019,
+          "tokens": 211337
+        },
+        {
+          "model": "gpt-6-astra",
+          "cost": 4.7899,
+          "tokens": 98339
+        }
+      ]
+    }
+  ]
+}
