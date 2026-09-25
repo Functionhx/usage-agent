@@ -30,6 +30,11 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
 SCHEMA_PATH = DATA_DIR / "usage.schema.json"
 
+# 这两个文件不是"某台机器的用量数据"，缺省校验时要跳过：
+#   usage.schema.json —— schema 自身，当然不符合 schema
+#   hosts.json        —— CI 从目录推导出的机器清单，是个字符串数组
+NON_DATA_FILES = {"usage.schema.json", "hosts.json"}
+
 # 这些键名一旦出现在公开数据里就是事故。用词根匹配，覆盖常见变体。
 SENSITIVE_KEY_RE = re.compile(
     r"(project|path|dir|cwd|repo|repositor|file|prompt|message|content|token_count|"
@@ -220,7 +225,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     schema = load_json(SCHEMA_PATH)
 
     targets = args.files or sorted(
-        p for p in DATA_DIR.glob("*.json") if p.name != SCHEMA_PATH.name
+        p for p in DATA_DIR.glob("*.json") if p.name not in NON_DATA_FILES
     )
     if not targets:
         print("没有找到要校验的数据文件。")
