@@ -1,0 +1,58 @@
+name: 生成数据清单
+
+# 为什么需要这个：静态页面要知道该去 fetch 哪些文件。让各机器自己往一个共享清单里
+# 写会造成 git 冲突；让页面去查 GitHub API 会引入速率限制和额外依赖。所以改成由 CI
+# **从目录推导**——机器只管写自己那个文件，清单永远自动一致。
+
+on:
+  push:
+    paths:
+      - "data/**.json"
+      - ".github/workflows/manifest.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: manifest
+  cancel-in-progress: false
+
+jobs:
+  manifest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 从 data/ 推导清单
+        run: |
+          set -euo pipefail
+          # 排除 schema 与清单自身，只留 <host>.json
+          hosts=$(cd data && ls -1 *.json \
+            | grep -v '^usage\.schema\.json$' \
+            | grep -v '^hosts\.json$' \
+            | sed 's/\.json$//' \
+            | sort || true)
+          if [ -z "$hosts" ]; then
+            echo '[]' > data/hosts.json
+          else
+            printf '%s\n' "$hosts" | python3 -c 'import json,sys; print(json.dumps([l.strip() for l in sys.stdin if l.strip()], indent=2))' > data/hosts.json
+          fi
+          echo "--- data/hosts.json ---"
+          cat data/hosts.json
+
+      - name: 校验 schema 与隐私约束
+        run: python3 scripts/validate_usage.py
+
+      - name: 有变化才提交（内容未变则不提交，避免自触发循环）
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data/hosts.json; then
+            echo "清单无变化，跳过提交。"
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/hosts.json
+          git commit -m "chore: 更新数据清单 [skip ci]"
+          git push

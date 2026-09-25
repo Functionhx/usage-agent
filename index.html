@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 用量统计 · Usage</title>
+<style>
+  /* 零依赖。明暗主题跟随系统，可用 [data-theme] 覆盖。 */
+  :root {
+    --bg: #ffffff; --fg: #1b1b1f; --muted: #6b6b76; --line: #e4e4ea;
+    --bar: #3b6fd4; --bar2: #d4a03b; --card: #f7f7fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #16161a; --fg: #e8e8ee; --muted: #9a9aa6; --line: #2c2c34;
+      --bar: #6f9bea; --bar2: #e0b95c; --card: #1e1e24;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 2rem 1.25rem; background: var(--bg); color: var(--fg);
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  }
+  main { max-width: 880px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 .25rem; font-weight: 600; }
+  h2 { font-size: .95rem; margin: 2rem 0 .75rem; font-weight: 600; color: var(--muted);
+       text-transform: uppercase; letter-spacing: .06em; }
+  .sub { color: var(--muted); font-size: .875rem; margin: 0 0 1.5rem; }
+  .totals { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+          padding: .75rem 1rem; flex: 1 1 140px; }
+  .stat .k { color: var(--muted); font-size: .78rem; display: block; margin-bottom: .15rem; }
+  .stat .v { font-size: 1.15rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  th, td { text-align: right; padding: .4rem .5rem; border-bottom: 1px solid var(--line); }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: var(--muted); font-weight: 500; font-size: .8rem; }
+
+  .bars { display: grid; gap: 2px; }
+  .row { display: grid; grid-template-columns: 4.5rem 1fr 5.5rem; align-items: center; gap: .6rem; }
+  .row .d { color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; }
+  .row .t { height: 14px; background: var(--line); border-radius: 3px; overflow: hidden; }
+  .row .t > i { display: block; height: 100%; background: var(--bar); border-radius: 3px; }
+  .row .c { text-align: right; font-size: .82rem; font-variant-numeric: tabular-nums; }
+
+  .error { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+           padding: 1rem; color: var(--muted); }
+  footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
+           color: var(--muted); font-size: .82rem; }
+  a { color: var(--bar); }
+</style>
+</head>
+<body>
+<main>
+  <h1>AI 用量统计</h1>
+  <p class="sub">
+    每日 token 用量与估算花费。数据由各机器本地解析自身日志后发布；此页面只读取聚合结果，
+    不含项目名、路径或任何对话内容。<br>
+    <span lang="en">Daily token usage and estimated cost. Aggregates only — no project names, paths, or message content.</span>
+  </p>
+
+  <div id="app"><p class="sub">载入中… / Loading…</p></div>
+
+  <footer>
+    <a href="https://github.com/Functionhx/usage-agent">仓库 / Repository</a> ·
+    数据每日自动更新 · 价格来自厂商官方定价页
+  </footer>
+</main>
+
+<script>
+"use strict";
+const MANIFEST = "data/hosts.json";
+const nf = new Intl.NumberFormat("en-US");
+const DOW = ["日", "一", "二", "三", "四", "五", "六"];
+
+function fmtTokens(n) {
+  if (!n) return "0";
+  if (n >= 1e9) return (n / 1e9).toFixed(2) + "B";
+  if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
+  if (n >= 1e3) return (n / 1e3).toFixed(0) + "k";
+  return String(n);
+}
+function fmtUSD(v) {
+  if (!v) return "$0.00";
+  if (v < 0.01) return "$" + v.toFixed(4);
+  if (v < 1000) return "$" + v.toFixed(2);
+  return "$" + Math.round(v).toLocaleString("en-US");
+}
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, (c) =>
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+function el(tag, cls) { const e = document.createElement(tag); if (cls) e.className = cls; return e; }
+
+async function main() {
+  const app = document.getElementById("app");
+  let hosts;
+  try {
+    const res = await fetch(MANIFEST, { cache: "no-cache" });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    hosts = await res.json();
+  } catch (err) {
+    app.replaceChildren(errorBox(
+      "数据清单载入失败：" + err.message + "。可能是尚未有机器发布过数据。"));
+    return;
+  }
+  if (!Array.isArray(hosts) || hosts.length === 0) {
+    app.replaceChildren(errorBox("还没有任何机器发布过数据。"));
+    return;
+  }
+
+  const results = await Promise.all(hosts.map(async (h) => {
+    try {
+      const res = await fetch("data/" + encodeURIComponent(h) + ".json", { cache: "no-cache" });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return { host: h, data: await res.json() };
+    } catch (err) {
+      return { host: h, error: err.message };
+    }
+  }));
+
+  const ok = results.filter((r) => r.data);
+  if (ok.length === 0) {
+    app.replaceChildren(errorBox("所有数据源都载入失败。"));
+    return;
+  }
+  render(app, ok, results.filter((r) => r.error));
+}
+
+function errorBox(msg) {
+  const d = el("div", "error"); d.textContent = msg; return d;
+}
+
+function render(app, hosts, failed) {
+  app.replaceChildren();
+
+  // 汇总：跨机器合并同一日期
+  const byDate = new Map();
+  const byModel = new Map();
+  let totalCost = 0, totalTokens = 0, totalCache = 0, latest = "";
+
+  for (const { data } of hosts) {
+    if (data.updatedAt && data.updatedAt > latest) latest = data.updatedAt;
+    for (const d of data.days || []) {
+      const cur = byDate.get(d.date) || { date: d.date, cost: 0, tokens: 0, cacheRead: 0 };
+      cur.cost += d.cost; cur.tokens += d.tokens; cur.cacheRead += d.cacheRead || 0;
+      byDate.set(d.date, cur);
+      totalCost += d.cost; totalTokens += d.tokens; totalCache += d.cacheRead || 0;
+      for (const m of d.byModel || []) {
+        const mm = byModel.get(m.model) || { model: m.model, cost: 0, tokens: 0 };
+        mm.cost += m.cost; mm.tokens += m.tokens; byModel.set(m.model, mm);
+      }
+    }
+  }
+
+  const days = [...byDate.values()].sort((a, b) => (a.date < b.date ? -1 : 1));
+
+  // 总计卡片
+  const totals = el("div", "totals");
+  const stat = (k, v) => {
+    const d = el("div", "stat");
+    const kk = el("span", "k"); kk.textContent = k;
+    const vv = el("span", "v"); vv.textContent = v;
+    d.append(kk, vv); return d;
+  };
+  totals.append(
+    stat("总花费 / Total cost", fmtUSD(totalCost)),
+    stat("tokens（不含 cache read）", fmtTokens(totalTokens)),
+    stat("cache read", fmtTokens(totalCache)),
+    stat("记录天数 / Days", String(days.length)),
+  );
+  app.append(totals);
+
+  // 每日趋势 —— 最近 30 天
+  const recent = days.slice(-30);
+  const max = Math.max(...recent.map((d) => d.cost), 1e-9);
+  const h2bars = el("h2"); h2bars.textContent = "每日趋势 / Daily（最近 30 天，各机器合计）";
+  const bars = el("div", "bars");
+  for (const d of recent) {
+    const row = el("div", "row");
+    const dd = el("div", "d"); dd.textContent = d.date.slice(5);
+    const t = el("div", "t"); const i = el("i");
+    i.style.width = Math.max(1, Math.round((d.cost / max) * 100)) + "%";
+    t.append(i);
+    const c = el("div", "c"); c.textContent = fmtUSD(d.cost);
+    row.append(dd, t, c);
+    bars.append(row);
+  }
+  app.append(h2bars, bars);
+
+  // 按模型
+  const models = [...byModel.values()].sort((a, b) => b.cost - a.cost);
+  if (models.length) {
+    const h2m = el("h2"); h2m.textContent = "按模型 / By model";
+    const table = el("table");
+    const thead = el("thead");
+    const hr = el("tr");
+    for (const [txt, align] of [["模型 / Model", "left"], ["花费 / Cost", "right"], ["tokens", "right"]]) {
+      const th = el("th"); th.textContent = txt; if (align) th.style.textAlign = align;
+      hr.append(th);
+    }
+    thead.append(hr);
+    const tbody = el("tbody");
+    for (const m of models) {
+      const tr = el("tr");
+      const td1 = el("td"); td1.textContent = m.model;
+      const td2 = el("td"); td2.textContent = fmtUSD(m.cost);
+      const td3 = el("td"); td3.textContent = fmtTokens(m.tokens);
+      tr.append(td1, td2, td3);
+      tbody.append(tr);
+    }
+    table.append(thead, tbody);
+    app.append(h2m, table);
+  }
+
+  // 每台机器
+  const h2h = el("h2"); h2h.textContent = "按机器 / By host";
+  const table2 = el("table");
+  const thead2 = el("thead"); const hr2 = el("tr");
+  for (const txt of ["机器 / Host", "花费 / Cost", "tokens", "最近更新"]) {
+    const th = el("th"); th.textContent = txt; hr2.append(th);
+  }
+  thead2.append(hr2);
+  const tbody2 = el("tbody");
+  for (const { host, data } of hosts) {
+    const cost = (data.days || []).reduce((a, d) => a + d.cost, 0);
+    const tokens = (data.days || []).reduce((a, d) => a + d.tokens, 0);
+    const tr = el("tr");
+    const c1 = el("td"); c1.textContent = host;
+    const c2 = el("td"); c2.textContent = fmtUSD(cost);
+    const c3 = el("td"); c3.textContent = fmtTokens(tokens);
+    const c4 = el("td"); c4.textContent = (data.updatedAt || "").slice(0, 10);
+    tr.append(c1, c2, c3, c4);
+    tbody2.append(tr);
+  }
+  table2.append(thead2, tbody2);
+  app.append(h2h, table2);
+
+  for (const f of failed) {
+    const e = errorBox("机器 " + f.host + " 的数据载入失败：" + f.error);
+    app.append(e);
+  }
+
+  if (latest) {
+    const p = el("p", "sub");
+    p.style.marginTop = "1.5rem";
+    p.textContent = "最近更新 " + latest.replace("T", " ").replace("Z", " UTC");
+    app.append(p);
+  }
+}
+
+main();
+</script>
+</body>
+</html>
