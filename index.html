@@ -5,15 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI 用量统计 · Usage</title>
 <style>
-  /* 零依赖。明暗主题跟随系统，可用 [data-theme] 覆盖。 */
   :root {
     --bg: #ffffff; --fg: #1b1b1f; --muted: #6b6b76; --line: #e4e4ea;
-    --bar: #3b6fd4; --bar2: #d4a03b; --card: #f7f7fa;
+    --card: #f7f7fa; --accent: #3b6fd4;
+    /* 热力图色阶：照 GitHub 贡献图的绿 */
+    --h0: #ebedf0; --h1: #9be9a8; --h2: #40c463; --h3: #30a14e; --h4: #216e39;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #16161a; --fg: #e8e8ee; --muted: #9a9aa6; --line: #2c2c34;
-      --bar: #6f9bea; --bar2: #e0b95c; --card: #1e1e24;
+      --card: #1e1e24; --accent: #6f9bea;
+      --h0: #1e1e24; --h1: #0e4429; --h2: #006d32; --h3: #26a641; --h4: #39d353;
     }
   }
   * { box-sizing: border-box; }
@@ -22,34 +24,63 @@
     font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
           "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
   }
-  main { max-width: 880px; margin: 0 auto; }
+  main { max-width: 900px; margin: 0 auto; }
   h1 { font-size: 1.4rem; margin: 0 0 .25rem; font-weight: 600; }
   h2 { font-size: .95rem; margin: 2rem 0 .75rem; font-weight: 600; color: var(--muted);
        text-transform: uppercase; letter-spacing: .06em; }
   .sub { color: var(--muted); font-size: .875rem; margin: 0 0 1.5rem; }
-  .totals { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+
+  .totals { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: .5rem; }
   .stat { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
-          padding: .75rem 1rem; flex: 1 1 140px; }
+          padding: .75rem 1rem; flex: 1 1 150px; }
   .stat .k { color: var(--muted); font-size: .78rem; display: block; margin-bottom: .15rem; }
-  .stat .v { font-size: 1.15rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .stat .v { font-size: 1.2rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .stat .n { color: var(--muted); font-size: .74rem; display: block; margin-top: .15rem; }
+
+  /* ── 热力图 ── */
+  .heat-wrap { overflow-x: auto; padding-bottom: .25rem; }
+  .heat { display: inline-grid; gap: 3px; }
+  .heat .months {
+    display: grid; gap: 3px; font-size: .7rem; color: var(--muted);
+    align-items: end; height: 1rem;
+  }
+  .heat .body { display: grid; grid-auto-flow: column; gap: 3px; }
+  .heat .col { display: grid; grid-template-rows: repeat(7, 1fr); gap: 3px; }
+  .heat .cell {
+    width: 11px; height: 11px; border-radius: 2px; background: var(--h0);
+    outline: 1px solid rgba(27,31,35,.06); outline-offset: -1px;
+  }
+  .heat .cell.l1 { background: var(--h1); }
+  .heat .cell.l2 { background: var(--h2); }
+  .heat .cell.l3 { background: var(--h3); }
+  .heat .cell.l4 { background: var(--h4); }
+  .heat .cell.pad { background: transparent; outline: none; }
+  .heat-legend { display: flex; align-items: center; gap: .35rem;
+                 font-size: .72rem; color: var(--muted); margin-top: .6rem; }
+  .heat-legend .cell { width: 11px; height: 11px; border-radius: 2px; }
 
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
   th, td { text-align: right; padding: .4rem .5rem; border-bottom: 1px solid var(--line); }
   th:first-child, td:first-child { text-align: left; }
   th { color: var(--muted); font-weight: 500; font-size: .8rem; }
+  td.dim { color: var(--muted); font-size: .82rem; }
 
-  .bars { display: grid; gap: 2px; }
-  .row { display: grid; grid-template-columns: 4.5rem 1fr 5.5rem; align-items: center; gap: .6rem; }
-  .row .d { color: var(--muted); font-size: .8rem; font-variant-numeric: tabular-nums; }
-  .row .t { height: 14px; background: var(--line); border-radius: 3px; overflow: hidden; }
-  .row .t > i { display: block; height: 100%; background: var(--bar); border-radius: 3px; }
-  .row .c { text-align: right; font-size: .82rem; font-variant-numeric: tabular-nums; }
+  .toggle { display: inline-flex; border: 1px solid var(--line); border-radius: 8px;
+            overflow: hidden; margin-bottom: 1rem; }
+  .toggle button {
+    background: transparent; border: 0; color: var(--muted); cursor: pointer;
+    font: inherit; font-size: .82rem; padding: .3rem .8rem;
+  }
+  .toggle button[aria-pressed="true"] { background: var(--accent); color: #fff; }
 
   .error { background: var(--card); border: 1px solid var(--line); border-radius: 10px;
            padding: 1rem; color: var(--muted); }
   footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
            color: var(--muted); font-size: .82rem; }
-  a { color: var(--bar); }
+  a { color: var(--accent); }
+  .tip { position: fixed; pointer-events: none; background: #24292f; color: #fff;
+         font-size: .76rem; padding: .35rem .55rem; border-radius: 6px; opacity: 0;
+         transition: opacity .1s; z-index: 9; white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -68,12 +99,14 @@
     数据每日自动更新 · 价格来自厂商官方定价页
   </footer>
 </main>
+<div class="tip" id="tip" role="tooltip"></div>
 
 <script>
 "use strict";
 const MANIFEST = "data/hosts.json";
-const nf = new Intl.NumberFormat("en-US");
 const DOW = ["日", "一", "二", "三", "四", "五", "六"];
+const MONTHS = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+const $ = (t, c) => { const e = document.createElement(t); if (c) e.className = c; return e; };
 
 function fmtTokens(n) {
   if (!n) return "0";
@@ -88,11 +121,8 @@ function fmtUSD(v) {
   if (v < 1000) return "$" + v.toFixed(2);
   return "$" + Math.round(v).toLocaleString("en-US");
 }
-function esc(s) {
-  return String(s).replace(/[&<>"']/g, (c) =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-}
-function el(tag, cls) { const e = document.createElement(tag); if (cls) e.className = cls; return e; }
+// 数量级差异很大（$0.01 到 $600），用平方根压缩，否则小日子全被压成同一档
+const level = (v, max) => (!v || !max ? 0 : Math.min(4, Math.max(1, Math.ceil(Math.sqrt(v / max) * 4))));
 
 async function main() {
   const app = document.getElementById("app");
@@ -102,12 +132,11 @@ async function main() {
     if (!res.ok) throw new Error("HTTP " + res.status);
     hosts = await res.json();
   } catch (err) {
-    app.replaceChildren(errorBox(
-      "数据清单载入失败：" + err.message + "。可能是尚未有机器发布过数据。"));
+    app.replaceChildren(box("数据清单载入失败：" + err.message));
     return;
   }
   if (!Array.isArray(hosts) || hosts.length === 0) {
-    app.replaceChildren(errorBox("还没有任何机器发布过数据。"));
+    app.replaceChildren(box("还没有任何机器发布过数据。"));
     return;
   }
 
@@ -122,133 +151,236 @@ async function main() {
   }));
 
   const ok = results.filter((r) => r.data);
-  if (ok.length === 0) {
-    app.replaceChildren(errorBox("所有数据源都载入失败。"));
-    return;
-  }
+  if (ok.length === 0) { app.replaceChildren(box("所有数据源都载入失败。")); return; }
   render(app, ok, results.filter((r) => r.error));
 }
 
-function errorBox(msg) {
-  const d = el("div", "error"); d.textContent = msg; return d;
-}
+function box(msg) { const d = $("div", "error"); d.textContent = msg; return d; }
 
 function render(app, hosts, failed) {
   app.replaceChildren();
 
-  // 汇总：跨机器合并同一日期
+  // 按日期合并各机器
   const byDate = new Map();
   const byModel = new Map();
-  let totalCost = 0, totalTokens = 0, totalCache = 0, latest = "";
+  const perHost = [];
+  for (const { host, data } of hosts) {
+    // 优先用顶层 totals（发布端算好的，定义只有一处）；没有就按天累加
+    const t = data.totals || (data.days || []).reduce((a, d) => ({
+      cost: a.cost + d.cost, tokens: a.tokens + d.tokens,
+      cacheRead: a.cacheRead + (d.cacheRead || 0),
+      tokensInclCache: a.tokensInclCache + (d.tokensInclCache || d.tokens + (d.cacheRead || 0)),
+    }), { cost: 0, tokens: 0, cacheRead: 0, tokensInclCache: 0 });
+    perHost.push({ host, data, totals: t, latest: data.updatedAt || "" });
 
-  for (const { data } of hosts) {
-    if (data.updatedAt && data.updatedAt > latest) latest = data.updatedAt;
     for (const d of data.days || []) {
-      const cur = byDate.get(d.date) || { date: d.date, cost: 0, tokens: 0, cacheRead: 0 };
-      cur.cost += d.cost; cur.tokens += d.tokens; cur.cacheRead += d.cacheRead || 0;
+      const cur = byDate.get(d.date) || { date: d.date, cost: 0, tokens: 0, cacheRead: 0, tokensInclCache: 0 };
+      cur.cost += d.cost;
+      cur.tokens += d.tokens;
+      cur.cacheRead += d.cacheRead || 0;
+      cur.tokensInclCache += d.tokensInclCache || (d.tokens + (d.cacheRead || 0));
       byDate.set(d.date, cur);
-      totalCost += d.cost; totalTokens += d.tokens; totalCache += d.cacheRead || 0;
       for (const m of d.byModel || []) {
-        const mm = byModel.get(m.model) || { model: m.model, cost: 0, tokens: 0 };
-        mm.cost += m.cost; mm.tokens += m.tokens; byModel.set(m.model, mm);
+        const mm = byModel.get(m.model) || { model: m.model, cost: 0, tokens: 0, cacheRead: 0, tokensInclCache: 0 };
+        mm.cost += m.cost; mm.tokens += m.tokens;
+        mm.cacheRead += m.cacheRead || 0;
+        mm.tokensInclCache += m.tokensInclCache || (m.tokens + (m.cacheRead || 0));
+        byModel.set(m.model, mm);
       }
     }
   }
-
   const days = [...byDate.values()].sort((a, b) => (a.date < b.date ? -1 : 1));
 
-  // 总计卡片
-  const totals = el("div", "totals");
-  const stat = (k, v) => {
-    const d = el("div", "stat");
-    const kk = el("span", "k"); kk.textContent = k;
-    const vv = el("span", "v"); vv.textContent = v;
-    d.append(kk, vv); return d;
+  const sum = (key) => perHost.reduce((a, h) => a + (h.totals[key] || 0), 0);
+  const latest = perHost.map((h) => h.latest).sort().pop() || "";
+
+  // ── 总计 ──
+  const totals = $("div", "totals");
+  const stat = (k, v, note) => {
+    const d = $("div", "stat");
+    const kk = $("span", "k"); kk.textContent = k;
+    const vv = $("span", "v"); vv.textContent = v;
+    d.append(kk, vv);
+    if (note) { const nn = $("span", "n"); nn.textContent = note; d.append(nn); }
+    return d;
   };
   totals.append(
-    stat("总花费 / Total cost", fmtUSD(totalCost)),
-    stat("tokens（不含 cache read）", fmtTokens(totalTokens)),
-    stat("cache read", fmtTokens(totalCache)),
+    stat("总花费 / Total cost", fmtUSD(sum("cost"))),
+    stat("Token 总量（含 cache）", fmtTokens(sum("tokensInclCache")), "实际消耗的总 token"),
+    stat("其中 cache read", fmtTokens(sum("cacheRead")), "单价较低，但仍计入总量"),
+    stat("不含 cache 的 token", fmtTokens(sum("tokens"))),
     stat("记录天数 / Days", String(days.length)),
   );
   app.append(totals);
 
-  // 每日趋势 —— 最近 30 天
-  const recent = days.slice(-30);
-  const max = Math.max(...recent.map((d) => d.cost), 1e-9);
-  const h2bars = el("h2"); h2bars.textContent = "每日趋势 / Daily（最近 30 天，各机器合计）";
-  const bars = el("div", "bars");
-  for (const d of recent) {
-    const row = el("div", "row");
-    const dd = el("div", "d"); dd.textContent = d.date.slice(5);
-    const t = el("div", "t"); const i = el("i");
-    i.style.width = Math.max(1, Math.round((d.cost / max) * 100)) + "%";
-    t.append(i);
-    const c = el("div", "c"); c.textContent = fmtUSD(d.cost);
-    row.append(dd, t, c);
-    bars.append(row);
-  }
-  app.append(h2bars, bars);
+  // ── 热力图 ──
+  const h2h = $("h2"); h2h.textContent = "每日用量 / Daily activity";
+  const toggle = $("div", "toggle");
+  let metric = "cost";
+  const btnCost = $("button"); btnCost.textContent = "按花费"; btnCost.setAttribute("aria-pressed", "true");
+  const btnTok = $("button"); btnTok.textContent = "按 token"; btnTok.setAttribute("aria-pressed", "false");
+  toggle.append(btnCost, btnTok);
+  const heatBox = $("div");
+  app.append(h2h, toggle, heatBox);
 
-  // 按模型
+  const draw = () => {
+    heatBox.replaceChildren(makeHeatmap(days, metric));
+  };
+  btnCost.onclick = () => { metric = "cost"; btnCost.setAttribute("aria-pressed", "true"); btnTok.setAttribute("aria-pressed", "false"); draw(); };
+  btnTok.onclick = () => { metric = "tokens"; btnTok.setAttribute("aria-pressed", "true"); btnCost.setAttribute("aria-pressed", "false"); draw(); };
+  draw();
+
+  // ── 按模型 ──
   const models = [...byModel.values()].sort((a, b) => b.cost - a.cost);
   if (models.length) {
-    const h2m = el("h2"); h2m.textContent = "按模型 / By model";
-    const table = el("table");
-    const thead = el("thead");
-    const hr = el("tr");
-    for (const [txt, align] of [["模型 / Model", "left"], ["花费 / Cost", "right"], ["tokens", "right"]]) {
-      const th = el("th"); th.textContent = txt; if (align) th.style.textAlign = align;
-      hr.append(th);
+    const h = $("h2"); h.textContent = "按模型 / By model";
+    const table = $("table");
+    const thead = $("thead"); const hr = $("tr");
+    for (const [txt, align] of [["模型 / Model", "left"], ["花费 / Cost", "right"],
+      ["Token 总量", "right"], ["其中 cache", "right"], ["不含 cache", "right"]]) {
+      const th = $("th"); th.textContent = txt; if (align) th.style.textAlign = align; hr.append(th);
     }
     thead.append(hr);
-    const tbody = el("tbody");
+    const tb = $("tbody");
     for (const m of models) {
-      const tr = el("tr");
-      const td1 = el("td"); td1.textContent = m.model;
-      const td2 = el("td"); td2.textContent = fmtUSD(m.cost);
-      const td3 = el("td"); td3.textContent = fmtTokens(m.tokens);
-      tr.append(td1, td2, td3);
-      tbody.append(tr);
+      const tr = $("tr");
+      const cells = [[m.model, "left"], [fmtUSD(m.cost), ""], [fmtTokens(m.tokensInclCache), ""],
+        [fmtTokens(m.cacheRead), "dim"], [fmtTokens(m.tokens), "dim"]];
+      for (const [txt, cls] of cells) {
+        const td = $("td"); td.textContent = txt;
+        if (cls === "left") td.style.textAlign = "left";
+        if (cls === "dim") td.className = "dim";
+        tr.append(td);
+      }
+      tb.append(tr);
     }
-    table.append(thead, tbody);
-    app.append(h2m, table);
+    table.append(thead, tb);
+    app.append(h, table);
   }
 
-  // 每台机器
-  const h2h = el("h2"); h2h.textContent = "按机器 / By host";
-  const table2 = el("table");
-  const thead2 = el("thead"); const hr2 = el("tr");
-  for (const txt of ["机器 / Host", "花费 / Cost", "tokens", "最近更新"]) {
-    const th = el("th"); th.textContent = txt; hr2.append(th);
+  // ── 按机器 ──
+  const h3 = $("h2"); h3.textContent = "按机器 / By host";
+  const t2 = $("table");
+  const hd2 = $("thead"); const r2 = $("tr");
+  for (const txt of ["机器 / Host", "花费 / Cost", "Token 总量", "天数", "最近更新"]) {
+    const th = $("th"); th.textContent = txt; r2.append(th);
   }
-  thead2.append(hr2);
-  const tbody2 = el("tbody");
-  for (const { host, data } of hosts) {
-    const cost = (data.days || []).reduce((a, d) => a + d.cost, 0);
-    const tokens = (data.days || []).reduce((a, d) => a + d.tokens, 0);
-    const tr = el("tr");
-    const c1 = el("td"); c1.textContent = host;
-    const c2 = el("td"); c2.textContent = fmtUSD(cost);
-    const c3 = el("td"); c3.textContent = fmtTokens(tokens);
-    const c4 = el("td"); c4.textContent = (data.updatedAt || "").slice(0, 10);
-    tr.append(c1, c2, c3, c4);
-    tbody2.append(tr);
+  hd2.append(r2);
+  const tb2 = $("tbody");
+  for (const { host, data, totals: t, latest: up } of perHost) {
+    const tr = $("tr");
+    for (const txt of [host, fmtUSD(t.cost), fmtTokens(t.tokensInclCache),
+      String((data.days || []).length), (up || "").slice(0, 10)]) {
+      const td = $("td"); td.textContent = txt; tr.append(td);
+    }
+    tb2.append(tr);
   }
-  table2.append(thead2, tbody2);
-  app.append(h2h, table2);
+  t2.append(hd2, tb2);
+  app.append(h3, t2);
 
-  for (const f of failed) {
-    const e = errorBox("机器 " + f.host + " 的数据载入失败：" + f.error);
-    app.append(e);
-  }
+  for (const f of failed) app.append(box("机器 " + f.host + " 的数据载入失败：" + f.error));
 
   if (latest) {
-    const p = el("p", "sub");
-    p.style.marginTop = "1.5rem";
+    const p = $("p", "sub"); p.style.marginTop = "1.5rem";
     p.textContent = "最近更新 " + latest.replace("T", " ").replace("Z", " UTC");
     app.append(p);
   }
+}
+
+/** 生成 GitHub 贡献图样式的热力图。 */
+function makeHeatmap(days, metric) {
+  const wrap = $("div", "heat-wrap");
+  if (days.length === 0) { wrap.append(box("暂无数据")); return wrap; }
+  const byDate = new Map(days.map((d) => [d.date, d]));
+  const value = (d) => (metric === "cost" ? d.cost : d.tokensInclCache);
+  const max = Math.max(...days.map(value), 1e-9);
+
+  // 从第一个日期所在周的周日，排到最后一个日期所在周的周六
+  const first = new Date(days[0].date + "T00:00:00Z");
+  const last = new Date(days[days.length - 1].date + "T00:00:00Z");
+  const start = new Date(first); start.setUTCDate(start.getUTCDate() - start.getUTCDay());
+  const end = new Date(last); end.setUTCDate(end.getUTCDate() + (6 - end.getUTCDay()));
+
+  const grid = $("div", "heat");
+  const weeks = [];
+  for (let d = new Date(start); d <= end; d.setUTCDate(d.getUTCDate() + 1)) {
+    weeks.push(new Date(d));
+  }
+  const cols = [];
+  for (let i = 0; i < weeks.length; i += 7) cols.push(weeks.slice(i, i + 7));
+
+  // 月份标签：某列包含该月 1 号时打标签
+  const months = $("div", "months");
+  months.style.gridTemplateColumns = `repeat(${cols.length}, 11px)`;
+  let prevMonth = -1;
+  for (const col of cols) {
+    const label = $("span");
+    const m = col[0].getUTCMonth();
+    if (m !== prevMonth && col.some((x) => x.getUTCDate() <= 7)) {
+      label.textContent = MONTHS[m];
+      prevMonth = m;
+    }
+    months.append(label);
+  }
+
+  const body = $("div", "body");
+  for (const col of cols) {
+    const c = $("div", "col");
+    for (const day of col) {
+      const k = day.toISOString().slice(0, 10);
+      const cell = $("div", "cell");
+      const rec = byDate.get(k);
+      if (!rec && (k < days[0].date || k > days[days.length - 1].date)) {
+        cell.classList.add("pad");           // 数据范围外的补位格
+      } else if (rec) {
+        const lv = level(value(rec), max);
+        if (lv > 0) cell.classList.add("l" + lv);
+        cell.dataset.tip = `${k}（周${DOW[day.getUTCDay()]}）\n`
+          + `花费 ${fmtUSD(rec.cost)}\n`
+          + `Token ${fmtTokens(rec.tokensInclCache)}（cache ${fmtTokens(rec.cacheRead)}）`;
+      } else {
+        cell.dataset.tip = `${k}（周${DOW[day.getUTCDay()]}）\n无用量`;
+      }
+      c.append(cell);
+    }
+    body.append(c);
+  }
+
+  grid.append(months, body);
+  wrap.append(grid);
+
+  const legend = $("div", "heat-legend");
+  const lt = $("span"); lt.textContent = metric === "cost" ? "花费少" : "用量少";
+  legend.append(lt);
+  for (const lv of [0, 1, 2, 3, 4]) {
+    const c = $("div", "cell"); if (lv) c.classList.add("l" + lv); legend.append(c);
+  }
+  const ltm = $("span"); ltm.textContent = metric === "cost" ? "多" : "多";
+  legend.append(ltm);
+  const note = $("span");
+  note.style.marginLeft = "1rem";
+  note.textContent = metric === "cost"
+    ? `最深 = ${fmtUSD(max)}/天`
+    : `最深 = ${fmtTokens(max)}/天`;
+  legend.append(note);
+  wrap.append(legend);
+
+  // 悬停提示
+  const tip = document.getElementById("tip");
+  wrap.addEventListener("mouseover", (e) => {
+    const t = e.target.dataset && e.target.dataset.tip;
+    if (!t) return;
+    tip.textContent = t;
+    tip.style.whiteSpace = "pre-line";
+    tip.style.opacity = "1";
+  });
+  wrap.addEventListener("mousemove", (e) => {
+    tip.style.left = Math.min(window.innerWidth - tip.offsetWidth - 8, e.clientX + 12) + "px";
+    tip.style.top = Math.max(8, e.clientY - tip.offsetHeight - 10) + "px";
+  });
+  wrap.addEventListener("mouseout", () => { tip.style.opacity = "0"; });
+
+  return wrap;
 }
 
 main();

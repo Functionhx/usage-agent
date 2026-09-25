@@ -178,6 +178,7 @@ def validate_semantics(data: Mapping[str, Any], file_path: Path) -> None:
     days = data["days"]
     seen: set[str] = set()
     previous = ""
+    tot_tokens = tot_cache = 0
     for index, day in enumerate(days):
         where = f"{file_path.name}: days[{index}]"
         date = day["date"]
@@ -190,22 +191,59 @@ def validate_semantics(data: Mapping[str, Any], file_path: Path) -> None:
         seen.add(date)
         previous = date
 
-        # byModel 的 token 之和不应超过当日总量太多（cache read 不计入 tokens，
+        # tokensInclCache 必须是 tokens + cacheRead —— 它是给人和账户对账用的，
+        # 算错了会直接误导。这条守住那个恒等式。
+        if day["tokensInclCache"] != day["tokens"] + day["cacheRead"]:
+            raise ValidationError(
+                f"{where}: tokensInclCache ({day['tokensInclCache']}) "
+                f"!= tokens ({day['tokens']}) + cacheRead ({day['cacheRead']})"
+            )
+
+        # byModel 的 token 之和不应超过当日总量（cache read 不计入 tokens，
         # 所以这里只做宽松的上界检查，用来抓住"复制粘贴错了整块"这类事故）
         model_tokens = sum(m["tokens"] for m in day["byModel"])
+        model_cache = sum(m["cacheRead"] for m in day["byModel"])
         if model_tokens and day["tokens"] == 0:
             raise ValidationError(f"{where}: tokens 为 0 但 byModel 里有 token")
         if model_tokens > day["tokens"] * 1.001 + 1:
             raise ValidationError(
                 f"{where}: byModel token 之和 ({model_tokens}) 超过当日总量 ({day['tokens']})"
             )
+        if abs(model_cache - day["cacheRead"]) > max(1, day["cacheRead"] * 0.001):
+            raise ValidationError(
+                f"{where}: byModel cacheRead 之和 ({model_cache}) 与当日 ({day['cacheRead']}) 不符"
+            )
 
         for m in day["byModel"]:
             if not MODEL_NAME_RE.match(m["model"]):
                 raise ValidationError(f"{where}: 模型名含非法字符：{m['model']!r}")
+            if m["tokensInclCache"] != m["tokens"] + m["cacheRead"]:
+                raise ValidationError(
+                    f"{where}: 模型 {m['model']!r} 的 tokensInclCache 不等于 tokens + cacheRead"
+                )
 
-    if days and len(days) > 400:
-        raise ValidationError(f"{file_path.name}: 天数超过 400，保留期裁剪可能失效")
+        tot_tokens += day["tokens"]
+        tot_cache += day["cacheRead"]
+
+    # 顶层汇总必须与逐日之和一致 —— 它是页面的唯一数据源，错了整张图就错了
+    totals = data["totals"]
+    if totals["tokens"] != tot_tokens:
+        raise ValidationError(
+            f"{file_path.name}: totals.tokens ({totals['tokens']}) 与逐日之和 ({tot_tokens}) 不符"
+        )
+    if totals["cacheRead"] != tot_cache:
+        raise ValidationError(
+            f"{file_path.name}: totals.cacheRead ({totals['cacheRead']}) 与逐日之和 ({tot_cache}) 不符"
+        )
+    if totals["tokensInclCache"] != tot_tokens + tot_cache:
+        raise ValidationError(
+            f"{file_path.name}: totals.tokensInclCache 不等于 tokens + cacheRead"
+        )
+    if totals["days"] != len(days):
+        raise ValidationError(f"{file_path.name}: totals.days ({totals['days']}) != 实际天数 ({len(days)})")
+    if days:
+        if totals.get("firstDate") != days[0]["date"] or totals.get("lastDate") != days[-1]["date"]:
+            raise ValidationError(f"{file_path.name}: totals 的 firstDate/lastDate 与 days 不符")
 
 
 def validate_file(file_path: Path, schema: Mapping[str, Any]) -> None:

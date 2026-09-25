@@ -5,7 +5,7 @@
   "description": "每天由 vibe-local 产出。只含聚合数字：每日总额与按模型拆分。刻意不包含项目名、文件路径或任何 prompt 内容——不是过滤掉的，而是数据结构里根本没有这些字段。",
   "type": "object",
   "additionalProperties": false,
-  "required": ["host", "schemaVersion", "updatedAt", "days"],
+  "required": ["host", "schemaVersion", "updatedAt", "totals", "days"],
   "properties": {
     "host": {
       "type": "string",
@@ -22,6 +22,27 @@
       "format": "date-time",
       "description": "UTC 时刻（带 Z），不是日历日。日界见 days[].date。"
     },
+    "totals": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cost", "tokens", "cacheRead", "tokensInclCache", "days"],
+      "description": "顶层汇总。让页面直接读，不必自己累加，也保证「总量」的定义只有一处。",
+      "properties": {
+        "cost": { "type": "number", "minimum": 0 },
+        "tokens": {
+          "type": "integer", "minimum": 0,
+          "description": "不含 cache read。与 bucket 的 totalTokens 口径一致。"
+        },
+        "cacheRead": { "type": "integer", "minimum": 0 },
+        "tokensInclCache": {
+          "type": "integer", "minimum": 0,
+          "description": "实际消耗总量 = tokens + cacheRead。cache read 也是真实处理过的 token，只是单价不同；只报不含 cache 的数会让人以为自己用少了。"
+        },
+        "days": { "type": "integer", "minimum": 0 },
+        "firstDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        "lastDate": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" }
+      }
+    },
     "days": {
       "type": "array",
       "maxItems": 400,
@@ -29,7 +50,7 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["date", "cost", "tokens", "cacheRead", "byModel"],
+        "required": ["date", "cost", "tokens", "cacheRead", "tokensInclCache", "byModel"],
         "properties": {
           "date": {
             "type": "string",
@@ -51,12 +72,17 @@
             "minimum": 0,
             "description": "单列，因为它常占大头，混进 tokens 会让数字对不上成本。"
           },
+          "tokensInclCache": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "实际消耗总量 = tokens + cacheRead。"
+          },
           "byModel": {
             "type": "array",
             "items": {
               "type": "object",
               "additionalProperties": false,
-              "required": ["model", "cost", "tokens"],
+              "required": ["model", "cost", "tokens", "cacheRead", "tokensInclCache"],
               "properties": {
                 "model": {
                   "type": "string",
@@ -64,7 +90,9 @@
                   "maxLength": 100
                 },
                 "cost": { "type": "number", "minimum": 0 },
-                "tokens": { "type": "integer", "minimum": 0 }
+                "tokens": { "type": "integer", "minimum": 0 },
+                "cacheRead": { "type": "integer", "minimum": 0 },
+                "tokensInclCache": { "type": "integer", "minimum": 0 }
               }
             }
           }

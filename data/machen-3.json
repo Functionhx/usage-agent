@@ -1,18 +1,30 @@
 {
   "host": "machen-3",
   "schemaVersion": 1,
-  "updatedAt": "2026-09-25T05:06:08Z",
+  "updatedAt": "2026-09-25T05:32:18Z",
+  "totals": {
+    "cost": 6167.681,
+    "tokens": 294316466,
+    "cacheRead": 9006786412,
+    "tokensInclCache": 9301102878,
+    "days": 77,
+    "firstDate": "2026-02-28",
+    "lastDate": "2026-09-25"
+  },
   "days": [
     {
       "date": "2026-02-28",
       "cost": 0.0264,
       "tokens": 54146,
       "cacheRead": 234240,
+      "tokensInclCache": 288386,
       "byModel": [
         {
           "model": "gpt-5-mini",
           "cost": 0.0264,
-          "tokens": 54146
+          "tokens": 54146,
+          "cacheRead": 234240,
+          "tokensInclCache": 288386
         }
       ]
     },
@@ -21,11 +33,14 @@
       "cost": 9.6632,
       "tokens": 1642019,
       "cacheRead": 13973760,
+      "tokensInclCache": 15615779,
       "byModel": [
         {
           "model": "gpt-5.4",
           "cost": 9.6632,
-          "tokens": 1642019
+          "tokens": 1642019,
+          "cacheRead": 13973760,
+          "tokensInclCache": 15615779
         }
       ]
     },
@@ -34,11 +49,14 @@
       "cost": 2.7825,
       "tokens": 411971,
       "cacheRead": 4594688,
+      "tokensInclCache": 5006659,
       "byModel": [
         {
           "model": "gpt-5.4",
           "cost": 2.7825,
-          "tokens": 411971
+          "tokens": 411971,
+          "cacheRead": 4594688,
+          "tokensInclCache": 5006659
         }
       ]
     },
@@ -47,11 +65,14 @@
       "cost": 0.2135,
       "tokens": 21159,
       "cacheRead": 78208,
+      "tokensInclCache": 99367,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 0.2135,
-          "tokens": 21159
+          "tokens": 21159,
+          "cacheRead": 78208,
+          "tokensInclCache": 99367
         }
       ]
     },
@@ -60,16 +81,21 @@
       "cost": 6.0449,
       "tokens": 740613,
       "cacheRead": 4276608,
+      "tokensInclCache": 5017221,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 6.0449,
-          "tokens": 570131
+          "tokens": 570131,
+          "cacheRead": 4189696,
+          "tokensInclCache": 4759827
         },
         {
           "model": "codex-auto-review",
           "cost": 0,
-          "tokens": 170482
+          "tokens": 170482,
+          "cacheRead": 86912,
+          "tokensInclCache": 257394
         }
       ]
     },
@@ -78,11 +104,14 @@
       "cost": 0.7258,
       "tokens": 64717,
       "cacheRead": 295424,
+      "tokensInclCache": 360141,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 0.7258,
-          "tokens": 64717
+          "tokens": 64717,
+          "cacheRead": 295424,
+          "tokensInclCache": 360141
         }
       ]
     },
@@ -91,11 +120,14 @@
       "cost": 0.0834,
       "tokens": 8554,
       "cacheRead": 21248,
+      "tokensInclCache": 29802,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 0.0834,
-          "tokens": 8554
+          "tokens": 8554,
+          "cacheRead": 21248,
+          "tokensInclCache": 29802
         }
       ]
     },
@@ -104,11 +136,14 @@
       "cost": 0.5422,
       "tokens": 62214,
       "cacheRead": 245888,
+      "tokensInclCache": 308102,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 0.5422,
-          "tokens": 62214
+          "tokens": 62214,
+          "cacheRead": 245888,
+          "tokensInclCache": 308102
         }
       ]
     },
@@ -117,11 +152,14 @@
       "cost": 12.23,
       "tokens": 754283,
       "cacheRead": 13391232,
+      "tokensInclCache": 14145515,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 12.23,
-          "tokens": 754283
+          "tokens": 754283,
+          "cacheRead": 13391232,
+          "tokensInclCache": 14145515
         }
       ]
     },
@@ -130,11 +168,14 @@
       "cost": 1.2966,
       "tokens": 160954,
       "cacheRead": 173184,
+      "tokensInclCache": 334138,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 1.2966,
-          "tokens": 160954
+          "tokens": 160954,
+          "cacheRead": 173184,
+          "tokensInclCache": 334138
         }
       ]
     },
@@ -143,11 +184,14 @@
       "cost": 0.6546,
       "tokens": 104400,
       "cacheRead": 2432,
+      "tokensInclCache": 106832,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 0.6546,
-          "tokens": 104400
+          "tokens": 104400,
+          "cacheRead": 2432,
+          "tokensInclCache": 106832
         }
       ]
     },
@@ -156,11 +200,14 @@
       "cost": 20.7956,
       "tokens": 2020676,
       "cacheRead": 17129984,
+      "tokensInclCache": 19150660,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 20.7956,
-          "tokens": 2020676
+          "tokens": 2020676,
+          "cacheRead": 17129984,
+          "tokensInclCache": 19150660
         }
       ]
     },
@@ -169,11 +216,14 @@
       "cost": 53.3986,
       "tokens": 3417513,
       "cacheRead": 52710784,
+      "tokensInclCache": 56128297,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 53.3986,
-          "tokens": 3417513
+          "tokens": 3417513,
+          "cacheRead": 52710784,
+          "tokensInclCache": 56128297
         }
       ]
     },
@@ -182,11 +232,14 @@
       "cost": 405.812,
       "tokens": 27046785,
       "cacheRead": 406119424,
+      "tokensInclCache": 433166209,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 405.812,
-          "tokens": 27046785
+          "tokens": 27046785,
+          "cacheRead": 406119424,
+          "tokensInclCache": 433166209
         }
       ]
     },
@@ -195,11 +248,14 @@
       "cost": 177.7375,
       "tokens": 12430073,
       "cacheRead": 170725632,
+      "tokensInclCache": 183155705,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 177.7375,
-          "tokens": 12430073
+          "tokens": 12430073,
+          "cacheRead": 170725632,
+          "tokensInclCache": 183155705
         }
       ]
     },
@@ -208,11 +264,14 @@
       "cost": 74.9486,
       "tokens": 5124001,
       "cacheRead": 78773760,
+      "tokensInclCache": 83897761,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 74.9486,
-          "tokens": 5124001
+          "tokens": 5124001,
+          "cacheRead": 78773760,
+          "tokensInclCache": 83897761
         }
       ]
     },
@@ -221,11 +280,14 @@
       "cost": 40.2411,
       "tokens": 2604026,
       "cacheRead": 42641920,
+      "tokensInclCache": 45245946,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 40.2411,
-          "tokens": 2604026
+          "tokens": 2604026,
+          "cacheRead": 42641920,
+          "tokensInclCache": 45245946
         }
       ]
     },
@@ -234,11 +296,14 @@
       "cost": 7.789,
       "tokens": 546192,
       "cacheRead": 7947520,
+      "tokensInclCache": 8493712,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 7.789,
-          "tokens": 546192
+          "tokens": 546192,
+          "cacheRead": 7947520,
+          "tokensInclCache": 8493712
         }
       ]
     },
@@ -247,11 +312,14 @@
       "cost": 50.6812,
       "tokens": 2597839,
       "cacheRead": 62954240,
+      "tokensInclCache": 65552079,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 50.6812,
-          "tokens": 2597839
+          "tokens": 2597839,
+          "cacheRead": 62954240,
+          "tokensInclCache": 65552079
         }
       ]
     },
@@ -260,11 +328,14 @@
       "cost": 73.8747,
       "tokens": 4491644,
       "cacheRead": 84130688,
+      "tokensInclCache": 88622332,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 73.8747,
-          "tokens": 4491644
+          "tokens": 4491644,
+          "cacheRead": 84130688,
+          "tokensInclCache": 88622332
         }
       ]
     },
@@ -273,11 +344,14 @@
       "cost": 15.0857,
       "tokens": 1642099,
       "cacheRead": 18228992,
+      "tokensInclCache": 19871091,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 15.0857,
-          "tokens": 1642099
+          "tokens": 1642099,
+          "cacheRead": 18228992,
+          "tokensInclCache": 19871091
         }
       ]
     },
@@ -286,11 +360,14 @@
       "cost": 12.2851,
       "tokens": 1002284,
       "cacheRead": 17360128,
+      "tokensInclCache": 18362412,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 12.2851,
-          "tokens": 1002284
+          "tokens": 1002284,
+          "cacheRead": 17360128,
+          "tokensInclCache": 18362412
         }
       ]
     },
@@ -299,16 +376,21 @@
       "cost": 67.2653,
       "tokens": 6228180,
       "cacheRead": 94522368,
+      "tokensInclCache": 100750548,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 64.2747,
-          "tokens": 5602622
+          "tokens": 5602622,
+          "cacheRead": 87520768,
+          "tokensInclCache": 93123390
         },
         {
           "model": "gpt-5.6-terra",
           "cost": 2.9906,
-          "tokens": 625558
+          "tokens": 625558,
+          "cacheRead": 7001600,
+          "tokensInclCache": 7627158
         }
       ]
     },
@@ -317,21 +399,28 @@
       "cost": 44.8734,
       "tokens": 4499911,
       "cacheRead": 81397376,
+      "tokensInclCache": 85897287,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 38.1327,
-          "tokens": 2976240
+          "tokens": 2976240,
+          "cacheRead": 55293184,
+          "tokensInclCache": 58269424
         },
         {
           "model": "gpt-5.6-terra",
           "cost": 6.7407,
-          "tokens": 1185830
+          "tokens": 1185830,
+          "cacheRead": 17112576,
+          "tokensInclCache": 18298406
         },
         {
           "model": "gpt-5.3-codex-spark",
           "cost": 0,
-          "tokens": 337841
+          "tokens": 337841,
+          "cacheRead": 8991616,
+          "tokensInclCache": 9329457
         }
       ]
     },
@@ -340,11 +429,14 @@
       "cost": 43.2446,
       "tokens": 2470580,
       "cacheRead": 71890176,
+      "tokensInclCache": 74360756,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 43.2446,
-          "tokens": 2470580
+          "tokens": 2470580,
+          "cacheRead": 71890176,
+          "tokensInclCache": 74360756
         }
       ]
     },
@@ -353,11 +445,14 @@
       "cost": 4.887,
       "tokens": 438842,
       "cacheRead": 5917696,
+      "tokensInclCache": 6356538,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 4.887,
-          "tokens": 438842
+          "tokens": 438842,
+          "cacheRead": 5917696,
+          "tokensInclCache": 6356538
         }
       ]
     },
@@ -366,11 +461,14 @@
       "cost": 28.6849,
       "tokens": 2034080,
       "cacheRead": 44911616,
+      "tokensInclCache": 46945696,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 28.6849,
-          "tokens": 2034080
+          "tokens": 2034080,
+          "cacheRead": 44911616,
+          "tokensInclCache": 46945696
         }
       ]
     },
@@ -379,21 +477,28 @@
       "cost": 1.2219,
       "tokens": 284690,
       "cacheRead": 1495168,
+      "tokensInclCache": 1779858,
       "byModel": [
         {
           "model": "gpt-5.5",
           "cost": 0.6859,
-          "tokens": 79492
+          "tokens": 79492,
+          "cacheRead": 373888,
+          "tokensInclCache": 453380
         },
         {
           "model": "gpt-5.6-terra",
           "cost": 0.536,
-          "tokens": 136212
+          "tokens": 136212,
+          "cacheRead": 972288,
+          "tokensInclCache": 1108500
         },
         {
           "model": "codex-auto-review",
           "cost": 0,
-          "tokens": 68986
+          "tokens": 68986,
+          "cacheRead": 148992,
+          "tokensInclCache": 217978
         }
       ]
     },
@@ -402,11 +507,14 @@
       "cost": 3.9867,
       "tokens": 378164,
       "cacheRead": 4736768,
+      "tokensInclCache": 5114932,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 3.9867,
-          "tokens": 378164
+          "tokens": 378164,
+          "cacheRead": 4736768,
+          "tokensInclCache": 5114932
         }
       ]
     },
@@ -415,11 +523,14 @@
       "cost": 1.5028,
       "tokens": 194403,
       "cacheRead": 1209856,
+      "tokensInclCache": 1404259,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 1.5028,
-          "tokens": 194403
+          "tokens": 194403,
+          "cacheRead": 1209856,
+          "tokensInclCache": 1404259
         }
       ]
     },
@@ -428,11 +539,14 @@
       "cost": 3.1203,
       "tokens": 294813,
       "cacheRead": 3660288,
+      "tokensInclCache": 3955101,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 3.1203,
-          "tokens": 294813
+          "tokens": 294813,
+          "cacheRead": 3660288,
+          "tokensInclCache": 3955101
         }
       ]
     },
@@ -441,11 +555,14 @@
       "cost": 19.9814,
       "tokens": 1307315,
       "cacheRead": 29052160,
+      "tokensInclCache": 30359475,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 19.9814,
-          "tokens": 1307315
+          "tokens": 1307315,
+          "cacheRead": 29052160,
+          "tokensInclCache": 30359475
         }
       ]
     },
@@ -454,11 +571,14 @@
       "cost": 79.0107,
       "tokens": 4925271,
       "cacheRead": 125993984,
+      "tokensInclCache": 130919255,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 79.0107,
-          "tokens": 4925271
+          "tokens": 4925271,
+          "cacheRead": 125993984,
+          "tokensInclCache": 130919255
         }
       ]
     },
@@ -467,11 +587,14 @@
       "cost": 285.6711,
       "tokens": 17615074,
       "cacheRead": 472188160,
+      "tokensInclCache": 489803234,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 285.6711,
-          "tokens": 17615074
+          "tokens": 17615074,
+          "cacheRead": 472188160,
+          "tokensInclCache": 489803234
         }
       ]
     },
@@ -480,11 +603,14 @@
       "cost": 205.3259,
       "tokens": 20855149,
       "cacheRead": 271334656,
+      "tokensInclCache": 292189805,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 205.3259,
-          "tokens": 20855149
+          "tokens": 20855149,
+          "cacheRead": 271334656,
+          "tokensInclCache": 292189805
         }
       ]
     },
@@ -493,11 +619,14 @@
       "cost": 127.9673,
       "tokens": 15864275,
       "cacheRead": 145406464,
+      "tokensInclCache": 161270739,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 127.9673,
-          "tokens": 15864275
+          "tokens": 15864275,
+          "cacheRead": 145406464,
+          "tokensInclCache": 161270739
         }
       ]
     },
@@ -506,11 +635,14 @@
       "cost": 18.2449,
       "tokens": 1928300,
       "cacheRead": 24469248,
+      "tokensInclCache": 26397548,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 18.2449,
-          "tokens": 1928300
+          "tokens": 1928300,
+          "cacheRead": 24469248,
+          "tokensInclCache": 26397548
         }
       ]
     },
@@ -519,11 +651,14 @@
       "cost": 74.3287,
       "tokens": 3344415,
       "cacheRead": 139489280,
+      "tokensInclCache": 142833695,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 74.3287,
-          "tokens": 3344415
+          "tokens": 3344415,
+          "cacheRead": 139489280,
+          "tokensInclCache": 142833695
         }
       ]
     },
@@ -532,11 +667,14 @@
       "cost": 95.6027,
       "tokens": 4881120,
       "cacheRead": 168447104,
+      "tokensInclCache": 173328224,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 95.6027,
-          "tokens": 4881120
+          "tokens": 4881120,
+          "cacheRead": 168447104,
+          "tokensInclCache": 173328224
         }
       ]
     },
@@ -545,11 +683,14 @@
       "cost": 37.3537,
       "tokens": 2179936,
       "cacheRead": 64590976,
+      "tokensInclCache": 66770912,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 37.3537,
-          "tokens": 2179936
+          "tokens": 2179936,
+          "cacheRead": 64590976,
+          "tokensInclCache": 66770912
         }
       ]
     },
@@ -558,11 +699,14 @@
       "cost": 41.7821,
       "tokens": 2565493,
       "cacheRead": 68268800,
+      "tokensInclCache": 70834293,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 41.7821,
-          "tokens": 2565493
+          "tokens": 2565493,
+          "cacheRead": 68268800,
+          "tokensInclCache": 70834293
         }
       ]
     },
@@ -571,11 +715,14 @@
       "cost": 2.8741,
       "tokens": 224235,
       "cacheRead": 3715584,
+      "tokensInclCache": 3939819,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 2.8741,
-          "tokens": 224235
+          "tokens": 224235,
+          "cacheRead": 3715584,
+          "tokensInclCache": 3939819
         }
       ]
     },
@@ -584,11 +731,14 @@
       "cost": 2.3013,
       "tokens": 140751,
       "cacheRead": 3189632,
+      "tokensInclCache": 3330383,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 2.3013,
-          "tokens": 140751
+          "tokens": 140751,
+          "cacheRead": 3189632,
+          "tokensInclCache": 3330383
         }
       ]
     },
@@ -597,16 +747,21 @@
       "cost": 4.7705,
       "tokens": 347493,
       "cacheRead": 7171584,
+      "tokensInclCache": 7519077,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 4.7705,
-          "tokens": 340296
+          "tokens": 340296,
+          "cacheRead": 7166720,
+          "tokensInclCache": 7507016
         },
         {
           "model": "codex-auto-review",
           "cost": 0,
-          "tokens": 7197
+          "tokens": 7197,
+          "cacheRead": 4864,
+          "tokensInclCache": 12061
         }
       ]
     },
@@ -615,11 +770,14 @@
       "cost": 2.5002,
       "tokens": 199195,
       "cacheRead": 2748928,
+      "tokensInclCache": 2948123,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 2.5002,
-          "tokens": 199195
+          "tokens": 199195,
+          "cacheRead": 2748928,
+          "tokensInclCache": 2948123
         }
       ]
     },
@@ -628,11 +786,14 @@
       "cost": 0.0619,
       "tokens": 1542,
       "cacheRead": 93952,
+      "tokensInclCache": 95494,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 0.0619,
-          "tokens": 1542
+          "tokens": 1542,
+          "cacheRead": 93952,
+          "tokensInclCache": 95494
         }
       ]
     },
@@ -641,11 +802,14 @@
       "cost": 9.1564,
       "tokens": 524386,
       "cacheRead": 14972032,
+      "tokensInclCache": 15496418,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 9.1564,
-          "tokens": 524386
+          "tokens": 524386,
+          "cacheRead": 14972032,
+          "tokensInclCache": 15496418
         }
       ]
     },
@@ -654,11 +818,14 @@
       "cost": 2.3461,
       "tokens": 156957,
       "cacheRead": 3472384,
+      "tokensInclCache": 3629341,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 2.3461,
-          "tokens": 156957
+          "tokens": 156957,
+          "cacheRead": 3472384,
+          "tokensInclCache": 3629341
         }
       ]
     },
@@ -667,11 +834,14 @@
       "cost": 43.0398,
       "tokens": 2595948,
       "cacheRead": 67385600,
+      "tokensInclCache": 69981548,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 43.0398,
-          "tokens": 2595948
+          "tokens": 2595948,
+          "cacheRead": 67385600,
+          "tokensInclCache": 69981548
         }
       ]
     },
@@ -680,11 +850,14 @@
       "cost": 5.5562,
       "tokens": 294283,
       "cacheRead": 9549824,
+      "tokensInclCache": 9844107,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 5.5562,
-          "tokens": 294283
+          "tokens": 294283,
+          "cacheRead": 9549824,
+          "tokensInclCache": 9844107
         }
       ]
     },
@@ -693,16 +866,21 @@
       "cost": 2.5224,
       "tokens": 560540,
       "cacheRead": 3743808,
+      "tokensInclCache": 4304348,
       "byModel": [
         {
           "model": "glm-5.3",
           "cost": 1.5868,
-          "tokens": 335470
+          "tokens": 335470,
+          "cacheRead": 3736896,
+          "tokensInclCache": 4072366
         },
         {
           "model": "gpt-5.6-sol",
           "cost": 0.9356,
-          "tokens": 225070
+          "tokens": 225070,
+          "cacheRead": 6912,
+          "tokensInclCache": 231982
         }
       ]
     },
@@ -711,16 +889,21 @@
       "cost": 3.1006,
       "tokens": 442576,
       "cacheRead": 4945856,
+      "tokensInclCache": 5388432,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 1.949,
-          "tokens": 183328
+          "tokens": 183328,
+          "cacheRead": 2034944,
+          "tokensInclCache": 2218272
         },
         {
           "model": "glm-5.3",
           "cost": 1.1517,
-          "tokens": 259248
+          "tokens": 259248,
+          "cacheRead": 2910912,
+          "tokensInclCache": 3170160
         }
       ]
     },
@@ -729,11 +912,14 @@
       "cost": 27.2706,
       "tokens": 1601496,
       "cacheRead": 43602432,
+      "tokensInclCache": 45203928,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 27.2706,
-          "tokens": 1601496
+          "tokens": 1601496,
+          "cacheRead": 43602432,
+          "tokensInclCache": 45203928
         }
       ]
     },
@@ -742,16 +928,21 @@
       "cost": 29.0474,
       "tokens": 1854065,
       "cacheRead": 53996864,
+      "tokensInclCache": 55850929,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 26.2552,
-          "tokens": 1473046
+          "tokens": 1473046,
+          "cacheRead": 45709824,
+          "tokensInclCache": 47182870
         },
         {
           "model": "glm-5.3",
           "cost": 2.7921,
-          "tokens": 381019
+          "tokens": 381019,
+          "cacheRead": 8287040,
+          "tokensInclCache": 8668059
         }
       ]
     },
@@ -760,11 +951,14 @@
       "cost": 10.0786,
       "tokens": 797113,
       "cacheRead": 14277504,
+      "tokensInclCache": 15074617,
       "byModel": [
         {
           "model": "gpt-5.6-sol",
           "cost": 10.0786,
-          "tokens": 797113
+          "tokens": 797113,
+          "cacheRead": 14277504,
+          "tokensInclCache": 15074617
         }
       ]
     },
@@ -773,21 +967,28 @@
       "cost": 59.9584,
       "tokens": 2289723,
       "cacheRead": 48559488,
+      "tokensInclCache": 50849211,
       "byModel": [
         {
           "model": "gpt-5.6-sol-priority",
           "cost": 55.1609,
-          "tokens": 1954648
+          "tokens": 1954648,
+          "cacheRead": 40994304,
+          "tokensInclCache": 42948952
         },
         {
           "model": "gpt-5.6-sol",
           "cost": 4.7597,
-          "tokens": 327187
+          "tokens": 327187,
+          "cacheRead": 7486336,
+          "tokensInclCache": 7813523
         },
         {
           "model": "glm-5.3",
           "cost": 0.0377,
-          "tokens": 7888
+          "tokens": 7888,
+          "cacheRead": 78848,
+          "tokensInclCache": 86736
         }
       ]
     },
@@ -796,11 +997,14 @@
       "cost": 56.271,
       "tokens": 1523286,
       "cacheRead": 48915968,
+      "tokensInclCache": 50439254,
       "byModel": [
         {
           "model": "gpt-5.6-sol-priority",
           "cost": 56.271,
-          "tokens": 1523286
+          "tokens": 1523286,
+          "cacheRead": 48915968,
+          "tokensInclCache": 50439254
         }
       ]
     },
@@ -809,16 +1013,21 @@
       "cost": 0.6613,
       "tokens": 54393,
       "cacheRead": 463360,
+      "tokensInclCache": 517753,
       "byModel": [
         {
           "model": "gpt-5.6-sol-priority",
           "cost": 0.3743,
-          "tokens": 12939
+          "tokens": 12939,
+          "cacheRead": 253568,
+          "tokensInclCache": 266507
         },
         {
           "model": "gpt-5.6-sol",
           "cost": 0.287,
-          "tokens": 41454
+          "tokens": 41454,
+          "cacheRead": 209792,
+          "tokensInclCache": 251246
         }
       ]
     },
@@ -827,16 +1036,21 @@
       "cost": 6.3023,
       "tokens": 328041,
       "cacheRead": 10299136,
+      "tokensInclCache": 10627177,
       "byModel": [
         {
           "model": "gpt-5.6-sol-priority",
           "cost": 6.2317,
-          "tokens": 194278
+          "tokens": 194278,
+          "cacheRead": 5061504,
+          "tokensInclCache": 5255782
         },
         {
           "model": "deepseek-v4-flash",
           "cost": 0.0706,
-          "tokens": 133763
+          "tokens": 133763,
+          "cacheRead": 5237632,
+          "tokensInclCache": 5371395
         }
       ]
     },
@@ -845,31 +1059,42 @@
       "cost": 512.6996,
       "tokens": 8586776,
       "cacheRead": 272538240,
+      "tokensInclCache": 281125016,
       "byModel": [
         {
           "model": "gpt-6-astra-priority",
           "cost": 325.665,
-          "tokens": 3339458
+          "tokens": 3339458,
+          "cacheRead": 108939904,
+          "tokensInclCache": 112279362
         },
         {
           "model": "gpt-5.6-sol-priority",
           "cost": 128.1069,
-          "tokens": 2896820
+          "tokens": 2896820,
+          "cacheRead": 110223744,
+          "tokensInclCache": 113120564
         },
         {
           "model": "gpt-6-astra",
           "cost": 51.3573,
-          "tokens": 1459322
+          "tokens": 1459322,
+          "cacheRead": 30981248,
+          "tokensInclCache": 32440570
         },
         {
           "model": "gpt-5.6-sol",
           "cost": 7.4339,
-          "tokens": 658614
+          "tokens": 658614,
+          "cacheRead": 9478656,
+          "tokensInclCache": 10137270
         },
         {
           "model": "deepseek-v4-flash",
           "cost": 0.1365,
-          "tokens": 232562
+          "tokens": 232562,
+          "cacheRead": 12914688,
+          "tokensInclCache": 13147250
         }
       ]
     },
@@ -878,16 +1103,21 @@
       "cost": 47.7868,
       "tokens": 1660178,
       "cacheRead": 83511306,
+      "tokensInclCache": 85171484,
       "byModel": [
         {
           "model": "claude-opus-5",
           "cost": 36.7804,
-          "tokens": 1068270
+          "tokens": 1068270,
+          "cacheRead": 45918494,
+          "tokensInclCache": 46986764
         },
         {
           "model": "claude-sonnet-5",
           "cost": 11.0064,
-          "tokens": 591908
+          "tokens": 591908,
+          "cacheRead": 37592812,
+          "tokensInclCache": 38184720
         }
       ]
     },
@@ -896,11 +1126,14 @@
       "cost": 81.4226,
       "tokens": 2262774,
       "cacheRead": 47036928,
+      "tokensInclCache": 49299702,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 81.4226,
-          "tokens": 2262774
+          "tokens": 2262774,
+          "cacheRead": 47036928,
+          "tokensInclCache": 49299702
         }
       ]
     },
@@ -909,16 +1142,21 @@
       "cost": 17.4378,
       "tokens": 4101578,
       "cacheRead": 133094656,
+      "tokensInclCache": 137196234,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 15.9413,
-          "tokens": 490620
+          "tokens": 490620,
+          "cacheRead": 8992896,
+          "tokensInclCache": 9483516
         },
         {
           "model": "deepseek-v4.1-flash-expires-on-0910",
           "cost": 1.4965,
-          "tokens": 3610958
+          "tokens": 3610958,
+          "cacheRead": 124101760,
+          "tokensInclCache": 127712718
         }
       ]
     },
@@ -927,11 +1165,14 @@
       "cost": 0.9686,
       "tokens": 935459,
       "cacheRead": 187426432,
+      "tokensInclCache": 188361891,
       "byModel": [
         {
           "model": "deepseek-v4.1-flash-expires-on-0910",
           "cost": 0.9686,
-          "tokens": 935459
+          "tokens": 935459,
+          "cacheRead": 187426432,
+          "tokensInclCache": 188361891
         }
       ]
     },
@@ -940,11 +1181,14 @@
       "cost": 45.3525,
       "tokens": 698635,
       "cacheRead": 35712000,
+      "tokensInclCache": 36410635,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 45.3525,
-          "tokens": 698635
+          "tokens": 698635,
+          "cacheRead": 35712000,
+          "tokensInclCache": 36410635
         }
       ]
     },
@@ -953,16 +1197,21 @@
       "cost": 742.3928,
       "tokens": 12073605,
       "cacheRead": 425818880,
+      "tokensInclCache": 437892485,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 514.2497,
-          "tokens": 10146330
+          "tokens": 10146330,
+          "cacheRead": 345630592,
+          "tokensInclCache": 355776922
         },
         {
           "model": "gpt-6-astra-priority",
           "cost": 228.143,
-          "tokens": 1927275
+          "tokens": 1927275,
+          "cacheRead": 80188288,
+          "tokensInclCache": 82115563
         }
       ]
     },
@@ -971,16 +1220,21 @@
       "cost": 251.8488,
       "tokens": 4047626,
       "cacheRead": 135174400,
+      "tokensInclCache": 139222026,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 142.4067,
-          "tokens": 2968896
+          "tokens": 2968896,
+          "cacheRead": 98953600,
+          "tokensInclCache": 101922496
         },
         {
           "model": "gpt-6-astra-priority",
           "cost": 109.4421,
-          "tokens": 1078730
+          "tokens": 1078730,
+          "cacheRead": 36220800,
+          "tokensInclCache": 37299530
         }
       ]
     },
@@ -989,11 +1243,14 @@
       "cost": 162.0871,
       "tokens": 3367775,
       "cacheRead": 112978944,
+      "tokensInclCache": 116346719,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 162.0871,
-          "tokens": 3367775
+          "tokens": 3367775,
+          "cacheRead": 112978944,
+          "tokensInclCache": 116346719
         }
       ]
     },
@@ -1002,11 +1259,14 @@
       "cost": 155.9104,
       "tokens": 3255344,
       "cacheRead": 106299648,
+      "tokensInclCache": 109554992,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 155.9104,
-          "tokens": 3255344
+          "tokens": 3255344,
+          "cacheRead": 106299648,
+          "tokensInclCache": 109554992
         }
       ]
     },
@@ -1015,16 +1275,21 @@
       "cost": 4.2705,
       "tokens": 462255,
       "cacheRead": 16002816,
+      "tokensInclCache": 16465071,
       "byModel": [
         {
           "model": "gpt-6-astra",
           "cost": 4.0055,
-          "tokens": 181727
+          "tokens": 181727,
+          "cacheRead": 1536512,
+          "tokensInclCache": 1718239
         },
         {
           "model": "deepseek-v4.1-flash-expires-on-0910",
           "cost": 0.2649,
-          "tokens": 280528
+          "tokens": 280528,
+          "cacheRead": 14466304,
+          "tokensInclCache": 14746832
         }
       ]
     },
@@ -1033,21 +1298,28 @@
       "cost": 868.9904,
       "tokens": 16786708,
       "cacheRead": 983348224,
+      "tokensInclCache": 1000134932,
       "byModel": [
         {
           "model": "gpt-6-astra-priority",
           "cost": 708.3646,
-          "tokens": 8210497
+          "tokens": 8210497,
+          "cacheRead": 228897664,
+          "tokensInclCache": 237108161
         },
         {
           "model": "gpt-6-astra",
           "cost": 156.8689,
-          "tokens": 3786054
+          "tokens": 3786054,
+          "cacheRead": 100789760,
+          "tokensInclCache": 104575814
         },
         {
           "model": "deepseek-v4.1-flash-expires-on-0910",
           "cost": 3.7569,
-          "tokens": 4790157
+          "tokens": 4790157,
+          "cacheRead": 653660800,
+          "tokensInclCache": 658450957
         }
       ]
     },
@@ -1056,16 +1328,21 @@
       "cost": 54.262,
       "tokens": 2855549,
       "cacheRead": 299049895,
+      "tokensInclCache": 301905444,
       "byModel": [
         {
           "model": "claude-opus-5",
           "cost": 52.938,
-          "tokens": 761491
+          "tokens": 761491,
+          "cacheRead": 82174375,
+          "tokensInclCache": 82935866
         },
         {
           "model": "deepseek-v4.1-flash-expires-on-0910",
           "cost": 1.324,
-          "tokens": 2094058
+          "tokens": 2094058,
+          "cacheRead": 216875520,
+          "tokensInclCache": 218969578
         }
       ]
     },
@@ -1074,26 +1351,35 @@
       "cost": 110.7188,
       "tokens": 9232495,
       "cacheRead": 1234220063,
+      "tokensInclCache": 1243452558,
       "byModel": [
         {
           "model": "claude-opus-5",
           "cost": 84.7104,
-          "tokens": 1534173
+          "tokens": 1534173,
+          "cacheRead": 129370527,
+          "tokensInclCache": 130904700
         },
         {
           "model": "gpt-6-astra",
           "cost": 18.9219,
-          "tokens": 786541
+          "tokens": 786541,
+          "cacheRead": 9259904,
+          "tokensInclCache": 10046445
         },
         {
           "model": "deepseek-flash",
           "cost": 7.0044,
-          "tokens": 6733154
+          "tokens": 6733154,
+          "cacheRead": 1094545792,
+          "tokensInclCache": 1101278946
         },
         {
           "model": "deepseek-v4-flash",
           "cost": 0.0821,
-          "tokens": 178627
+          "tokens": 178627,
+          "cacheRead": 1043840,
+          "tokensInclCache": 1222467
         }
       ]
     },
@@ -1102,36 +1388,49 @@
       "cost": 206.872,
       "tokens": 13290554,
       "cacheRead": 745981225,
+      "tokensInclCache": 759271779,
       "byModel": [
         {
           "model": "claude-opus-5",
           "cost": 199.65,
-          "tokens": 4201011
+          "tokens": 4201011,
+          "cacheRead": 288005737,
+          "tokensInclCache": 292206748
         },
         {
           "model": "deepseek-flash",
           "cost": 2.5471,
-          "tokens": 1738286
+          "tokens": 1738286,
+          "cacheRead": 407534976,
+          "tokensInclCache": 409273262
         },
         {
           "model": "gpt-6-astra",
           "cost": 2.4544,
-          "tokens": 148514
+          "tokens": 148514,
+          "cacheRead": 523264,
+          "tokensInclCache": 671778
         },
         {
           "model": "gpt-5.6-sol",
           "cost": 2.2206,
-          "tokens": 174454
+          "tokens": 174454,
+          "cacheRead": 3111680,
+          "tokensInclCache": 3286134
         },
         {
           "model": "mimo-v2.5-free",
           "cost": 0,
-          "tokens": 14327
+          "tokens": 14327,
+          "cacheRead": 1024,
+          "tokensInclCache": 15351
         },
         {
           "model": "mimo-v2.6-flash-free",
           "cost": 0,
-          "tokens": 7013962
+          "tokens": 7013962,
+          "cacheRead": 46804544,
+          "tokensInclCache": 53818506
         }
       ]
     },
@@ -1140,31 +1439,42 @@
       "cost": 113.5321,
       "tokens": 14689508,
       "cacheRead": 247912438,
+      "tokensInclCache": 262601946,
       "byModel": [
         {
           "model": "claude-opus-5",
           "cost": 111.832,
-          "tokens": 2722100
+          "tokens": 2722100,
+          "cacheRead": 154661219,
+          "tokensInclCache": 157383319
         },
         {
           "model": "claude-opus-5-5",
           "cost": 1.1623,
-          "tokens": 106685
+          "tokens": 106685,
+          "cacheRead": 1025817,
+          "tokensInclCache": 1132502
         },
         {
           "model": "deepseek-flash",
           "cost": 0.5378,
-          "tokens": 373476
+          "tokens": 373476,
+          "cacheRead": 42467072,
+          "tokensInclCache": 42840548
         },
         {
           "model": "mimo-v2.6-flash-free",
           "cost": 0,
-          "tokens": 11397476
+          "tokens": 11397476,
+          "cacheRead": 48225408,
+          "tokensInclCache": 59622884
         },
         {
           "model": "muse-spark-1.3-contributor-free",
           "cost": 0,
-          "tokens": 89771
+          "tokens": 89771,
+          "cacheRead": 1532922,
+          "tokensInclCache": 1622693
         }
       ]
     },
@@ -1173,94 +1483,128 @@
       "cost": 251.2063,
       "tokens": 15936335,
       "cacheRead": 414259826,
+      "tokensInclCache": 430196161,
       "byModel": [
         {
           "model": "claude-opus-5",
           "cost": 169.4858,
-          "tokens": 4787328
+          "tokens": 4787328,
+          "cacheRead": 223681401,
+          "tokensInclCache": 228468729
         },
         {
           "model": "gpt-6-astra",
           "cost": 37.145,
-          "tokens": 904236
+          "tokens": 904236,
+          "cacheRead": 23876096,
+          "tokensInclCache": 24780332
         },
         {
           "model": "claude-opus-5-5",
           "cost": 29.2476,
-          "tokens": 1339194
+          "tokens": 1339194,
+          "cacheRead": 73274428,
+          "tokensInclCache": 74613622
         },
         {
           "model": "gpt-5.6-sol",
           "cost": 15.2735,
-          "tokens": 695391
+          "tokens": 695391,
+          "cacheRead": 27155072,
+          "tokensInclCache": 27850463
         },
         {
           "model": "claude-sonnet-5",
           "cost": 0.0544,
-          "tokens": 17136
+          "tokens": 17136,
+          "cacheRead": 9862,
+          "tokensInclCache": 26998
         },
         {
           "model": "ling-3.0-flash-fin-free",
           "cost": 0,
-          "tokens": 154682
+          "tokens": 154682,
+          "cacheRead": 2044736,
+          "tokensInclCache": 2199418
         },
         {
           "model": "mimo-v2.6-flash-free",
           "cost": 0,
-          "tokens": 5383347
+          "tokens": 5383347,
+          "cacheRead": 31315520,
+          "tokensInclCache": 36698867
         },
         {
           "model": "muse-spark-1.3-contributor-free",
           "cost": 0,
-          "tokens": 2375060
+          "tokens": 2375060,
+          "cacheRead": 31299991,
+          "tokensInclCache": 33675051
         },
         {
           "model": "nemotron-3-ultra-free",
           "cost": 0,
-          "tokens": 279961
+          "tokens": 279961,
+          "cacheRead": 1602720,
+          "tokensInclCache": 1882681
         }
       ]
     },
     {
       "date": "2026-09-25",
-      "cost": 120.9116,
-      "tokens": 6776878,
-      "cacheRead": 315337419,
+      "cost": 121.1352,
+      "tokens": 6899116,
+      "cacheRead": 370324427,
+      "tokensInclCache": 377223543,
       "byModel": [
         {
           "model": "claude-opus-5",
           "cost": 83.6619,
-          "tokens": 1698977
+          "tokens": 1698977,
+          "cacheRead": 121921226,
+          "tokensInclCache": 123620203
         },
         {
           "model": "claude-opus-5-5",
           "cost": 34.1733,
-          "tokens": 1679840
+          "tokens": 1679840,
+          "cacheRead": 81331245,
+          "tokensInclCache": 83011085
         },
         {
           "model": "gpt-5.6-sol",
           "cost": 2.1736,
-          "tokens": 409624
+          "tokens": 409624,
+          "cacheRead": 1089408,
+          "tokensInclCache": 1499032
         },
         {
           "model": "deepseek-flash",
-          "cost": 0.9028,
-          "tokens": 901893
+          "cost": 1.1264,
+          "tokens": 1024131,
+          "cacheRead": 157660928,
+          "tokensInclCache": 158685059
         },
         {
           "model": "mimo-v2.6-flash-free",
           "cost": 0,
-          "tokens": 129875
+          "tokens": 129875,
+          "cacheRead": 48832,
+          "tokensInclCache": 178707
         },
         {
           "model": "muse-spark-1.3-contributor-free",
           "cost": 0,
-          "tokens": 372810
+          "tokens": 372810,
+          "cacheRead": 747348,
+          "tokensInclCache": 1120158
         },
         {
           "model": "nemotron-3-ultra-free",
           "cost": 0,
-          "tokens": 1583859
+          "tokens": 1583859,
+          "cacheRead": 7525440,
+          "tokensInclCache": 9109299
         }
       ]
     }
