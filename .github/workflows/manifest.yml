@@ -47,12 +47,17 @@ jobs:
       - name: 有变化才提交（内容未变则不提交，避免自触发循环）
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/hosts.json; then
+          # 先 add 再查暂存区。
+          #
+          # 不能用 `git diff --quiet -- data/hosts.json`：diff 只看**已跟踪**文件的
+          # 修改，而 hosts.json 首次生成时是全新的未跟踪文件，diff 为空 —— 守卫会
+          # 误判成"无变化"从而永远不提交。踩过一次，见提交历史。
+          git add data/hosts.json
+          if git diff --cached --quiet; then
             echo "清单无变化，跳过提交。"
             exit 0
           fi
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/hosts.json
           git commit -m "chore: 更新数据清单 [skip ci]"
           git push
