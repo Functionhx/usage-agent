@@ -1,7 +1,7 @@
 {
   "host": "machen-3",
   "schemaVersion": 1,
-  "updatedAt": "2026-09-25T05:05:47Z",
+  "updatedAt": "2026-09-25T05:06:08Z",
   "days": [
     {
       "date": "2026-02-28",
@@ -1223,9 +1223,9 @@
     },
     {
       "date": "2026-09-25",
-      "cost": 120.9083,
-      "tokens": 6775758,
-      "cacheRead": 314419403,
+      "cost": 120.9116,
+      "tokens": 6776878,
+      "cacheRead": 315337419,
       "byModel": [
         {
           "model": "claude-opus-5",
@@ -1244,8 +1244,8 @@
         },
         {
           "model": "deepseek-flash",
-          "cost": 0.8995,
-          "tokens": 900773
+          "cost": 0.9028,
+          "tokens": 901893
         },
         {
           "model": "mimo-v2.6-flash-free",
